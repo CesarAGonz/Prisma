@@ -1,8 +1,9 @@
   
-type Schedule {
+type Schedule implements Movie {
     id: ID! @id
     startTime: DateTime!
     finalTime: DateTime!
+    createdAt: DateTime!
     Movie: Movie! @relation(link: INLINE)
     room: Room! @relation(link: INLINE)
 }
