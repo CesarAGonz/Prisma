@@ -1,4 +1,4 @@
-type seat {
+type seat implements Room {
     id: ID! 
     room: Room! @relation(link: INLINE)
 }

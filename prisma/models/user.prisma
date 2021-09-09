@@ -10,5 +10,4 @@ type User {
 enum Level {
   ADMIN
   CLIENT
-  SELLER
 }

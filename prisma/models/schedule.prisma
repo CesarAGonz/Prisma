@@ -4,6 +4,7 @@ type Schedule implements Movie {
     startTime: DateTime!
     finalTime: DateTime!
     createdAt: DateTime!
-    Movie: Movie! @relation(link: INLINE)
+    updatedAt: DateTime!
+    movie: Movie! @relation(link: INLINE)
     room: Room! @relation(link: INLINE)
 }
