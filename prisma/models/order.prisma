@@ -5,9 +5,10 @@ type Order {
     room: Room @relation(link: INLINE)
     active: Boolean! @default(value: true)
     product: [Product] @relation(link: INLINE)
-    schedule: Schedule
+    schedule: Schedule! @relation(link: INLINE)
     sku: String!
     amount: Int!
+    rewards: Int!
 }
 
 enum OrderState{

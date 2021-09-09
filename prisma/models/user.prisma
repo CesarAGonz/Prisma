@@ -4,7 +4,6 @@ type User {
   password: String
   name: String!
   type: Level!
-  orders: [Order] @relation(link: INLINE)
 }
 
 enum Level {
