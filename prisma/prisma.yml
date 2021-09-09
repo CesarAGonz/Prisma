@@ -3,9 +3,12 @@ databaseType: document
 datamodel:
   - ./models/movie.prisma
   - ./models/order.prisma
+  - ./models/product.prisma
   - ./models/room.prisma
   - ./models/schedule.prisma
+  - ./models/seat.prisma
   - ./models/user.prisma
+  
 
 generate:
   - generator: typescript-client
