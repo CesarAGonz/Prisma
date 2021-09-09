@@ -3,7 +3,7 @@ type User {
   email: String! @unique
   password: String
   name: String!
-  type: level!
+  type: Level!
   orders: [Order] @relation(link: INLINE)
 }
 
