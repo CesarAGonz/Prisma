@@ -3,4 +3,11 @@ type Room {
     avaible: Boolean! @default(value: True)
     movie: String!
     movie: Movie @relation(link: Inline)
+    kind: Kind!
+}
+enum Kind{
+    NORMAL
+    VIP
+    TD
+    CD
 }
