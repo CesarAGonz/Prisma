@@ -1,0 +1,8 @@
+  
+type Product {
+    id: ID! @id
+    name: String!
+    description: String!
+    price: Int!
+    sku: String!
+}

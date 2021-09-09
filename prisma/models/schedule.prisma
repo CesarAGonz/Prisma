@@ -1,0 +1,8 @@
+  
+type Schedule {
+    id: ID! @id
+    startTime: DateTime!
+    finalTime: DateTime!
+    Movie: Movie! @relation(link: INLINE)
+    room: Room! @relation(link: INLINE)
+}
