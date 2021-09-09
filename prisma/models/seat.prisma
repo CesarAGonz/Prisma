@@ -1,0 +1,4 @@
+type seat {
+    id: ID! 
+    room: Room! @relation(link: INLINE)
+}
