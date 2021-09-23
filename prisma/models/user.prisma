@@ -9,7 +9,6 @@ type User implements Node {
   name: String!
   lastName: String
   points: Int
-  membership: Membership @relation(link: INLINE)
   type: TypeUser
   token: String @unique
   orders: [Order!]! @relation(name: "UserOrders" link: INLINE)

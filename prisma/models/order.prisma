@@ -5,9 +5,7 @@ type Order implements Node{
   customer: Customer! @relation(link: INLINE)
   price: Int!
   items: [Item!]! @relation(link: INLINE)
-  tickets: [Ticket!]! @relation(link: INLINE)
   discount: Int!
-  employee: Employee! @relation(link: INLINE)
   PaymentMethod: TypePayment!
   user: User! @relation(name: "OrderUser", link: INLINE)
 }
