@@ -1,20 +1,25 @@
-type Order {
-    id: ID! @id
-    createdAt: DateTime!
-    #user: User! @relation(name:"nombreUsuario" ,link: INLINE)
-    room: Room @relation(link: INLINE)
-    active: Boolean! @default(value: true)
-    product: [Product] @relation(link: INLINE)
-    schedule: Schedule! @relation(link: INLINE)
-    sku: String!
-    amount: Int!
-    rewards: Int!
+type Order implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  customer: Customer! @relation(link: INLINE)
+  price: Int!
+  items: [Item!]! @relation(link: INLINE)
+  discount: Int!
+  PaymentMethod: TypePayment!
+  user: User! @relation(name: "OrderUser", link: INLINE)
 }
 
-enum OrderState{
-    NUEVA
-    PENDIENTE
-    CANCELADA
-    PAGADA
-    CONFIRMADA
+enum TypePayment {
+  CASH
+  CARD
+  POINTS
+}
+
+enum TypeStatus {
+  CANCELLED
+  CONFIRMED
+  CREATED
+  PAID
+  PENDING
 }

@@ -3,8 +3,8 @@ type Schedule implements Movie {
     id: ID! @id
     startTime: DateTime!
     finalTime: DateTime!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
     movie: Movie! @relation(link: INLINE)
     room: Room! @relation(link: INLINE)
 }

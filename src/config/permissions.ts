@@ -6,17 +6,19 @@ import { isAuthenticated } from "./polices";
 export const permissions = shield(
   {
     Query: {
-      "*": allow,
+      "*": isAuthenticated
     },
     Mutation: {
-      "*": allow,
+      "*": isAuthenticated,
+      "createUser": allow,
+      "login": allow
     },
     Subscription: {
       "*": allow,
     },
     User: {
       "*": allow,
-    },
+    }
   },
   {
     allowExternalErrors: true,
