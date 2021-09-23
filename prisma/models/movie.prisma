@@ -1,7 +1,12 @@
-type Movie {
-    id: ID! @id
-    name: String!
-    duration: Int!
-    description: String
-    clasification: String!
+type Movie implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  title: String!
+  sinopsis: String!
+  genere: String!
+  clasification: String!
+  lenght: Int!
+  lenguage: String!
+  premiere: DateTime!
 }

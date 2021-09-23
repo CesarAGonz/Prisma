@@ -1,12 +1,18 @@
-type Room {
-    id: ID! @id
-    avaible: Boolean! @default(value: false)
-    movie: Movie @relation(link: INLINE)
-    kind: Kind!
+type Room implements Node{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  available: Boolean! @default(value: true)
+  type: TypeRoom!
+  seats: [Seat]! @relation(link: INLINE)
+  number: Int!
 }
-enum Kind{
-    NORMAL
-    VIP
-    TD
-    CD
+
+enum TypeRoom {
+  VIP
+  CUATROD
+  TRESD
+  MACRO
+  IMAX
+  CLASICA
 }
