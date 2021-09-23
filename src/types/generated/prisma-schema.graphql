@@ -2,23 +2,11 @@ type AggregateBillboard {
   count: Int!
 }
 
-type AggregateCombo {
-  count: Int!
-}
-
 type AggregateCustomer {
   count: Int!
 }
 
-type AggregateEmployee {
-  count: Int!
-}
-
 type AggregateItem {
-  count: Int!
-}
-
-type AggregateMembership {
   count: Int!
 }
 
@@ -39,10 +27,6 @@ type AggregateSeat {
 }
 
 type AggregateShow {
-  count: Int!
-}
-
-type AggregateTicket {
   count: Int!
 }
 
@@ -205,148 +189,6 @@ input BillboardWhereUniqueInput {
   id: ID
 }
 
-type Combo {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  name: String!
-  description: String
-  items(where: ItemWhereInput, orderBy: ItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Item!]
-}
-
-type ComboConnection {
-  pageInfo: PageInfo!
-  edges: [ComboEdge]!
-  aggregate: AggregateCombo!
-}
-
-input ComboCreateInput {
-  id: ID
-  name: String!
-  description: String
-  items: ItemCreateManyInput
-}
-
-type ComboEdge {
-  node: Combo!
-  cursor: String!
-}
-
-enum ComboOrderByInput {
-  id_ASC
-  id_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
-  name_ASC
-  name_DESC
-  description_ASC
-  description_DESC
-}
-
-type ComboPreviousValues {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  name: String!
-  description: String
-}
-
-type ComboSubscriptionPayload {
-  mutation: MutationType!
-  node: Combo
-  updatedFields: [String!]
-  previousValues: ComboPreviousValues
-}
-
-input ComboSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: ComboWhereInput
-  AND: [ComboSubscriptionWhereInput!]
-}
-
-input ComboUpdateInput {
-  name: String
-  description: String
-  items: ItemUpdateManyInput
-}
-
-input ComboUpdateManyMutationInput {
-  name: String
-  description: String
-}
-
-input ComboWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
-  items_some: ItemWhereInput
-  AND: [ComboWhereInput!]
-}
-
-input ComboWhereUniqueInput {
-  id: ID
-}
-
 type Customer {
   id: ID!
   createdAt: DateTime!
@@ -491,139 +333,6 @@ input CustomerWhereUniqueInput {
 }
 
 scalar DateTime
-
-type Employee {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  rol: TypeRol!
-  user: User!
-}
-
-type EmployeeConnection {
-  pageInfo: PageInfo!
-  edges: [EmployeeEdge]!
-  aggregate: AggregateEmployee!
-}
-
-input EmployeeCreateInput {
-  id: ID
-  rol: TypeRol!
-  user: UserCreateOneInput!
-}
-
-input EmployeeCreateOneInput {
-  create: EmployeeCreateInput
-  connect: EmployeeWhereUniqueInput
-}
-
-type EmployeeEdge {
-  node: Employee!
-  cursor: String!
-}
-
-enum EmployeeOrderByInput {
-  id_ASC
-  id_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
-  rol_ASC
-  rol_DESC
-}
-
-type EmployeePreviousValues {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  rol: TypeRol!
-}
-
-type EmployeeSubscriptionPayload {
-  mutation: MutationType!
-  node: Employee
-  updatedFields: [String!]
-  previousValues: EmployeePreviousValues
-}
-
-input EmployeeSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: EmployeeWhereInput
-  AND: [EmployeeSubscriptionWhereInput!]
-}
-
-input EmployeeUpdateDataInput {
-  rol: TypeRol
-  user: UserUpdateOneRequiredInput
-}
-
-input EmployeeUpdateInput {
-  rol: TypeRol
-  user: UserUpdateOneRequiredInput
-}
-
-input EmployeeUpdateManyMutationInput {
-  rol: TypeRol
-}
-
-input EmployeeUpdateOneRequiredInput {
-  create: EmployeeCreateInput
-  update: EmployeeUpdateDataInput
-  upsert: EmployeeUpsertNestedInput
-  connect: EmployeeWhereUniqueInput
-}
-
-input EmployeeUpsertNestedInput {
-  update: EmployeeUpdateDataInput!
-  create: EmployeeCreateInput!
-}
-
-input EmployeeWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  rol: TypeRol
-  rol_not: TypeRol
-  rol_in: [TypeRol!]
-  rol_not_in: [TypeRol!]
-  user: UserWhereInput
-  AND: [EmployeeWhereInput!]
-}
-
-input EmployeeWhereUniqueInput {
-  id: ID
-}
 
 type Item {
   id: ID!
@@ -984,229 +693,12 @@ input ItemWhereUniqueInput {
 
 scalar Long
 
-type Membership {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  title: String!
-  description: String!
-  genere: String!
-  points: Int!
-  type: TypeMembership!
-}
-
-type MembershipConnection {
-  pageInfo: PageInfo!
-  edges: [MembershipEdge]!
-  aggregate: AggregateMembership!
-}
-
-input MembershipCreateInput {
-  id: ID
-  title: String!
-  description: String!
-  genere: String!
-  points: Int!
-  type: TypeMembership!
-}
-
-input MembershipCreateOneInput {
-  create: MembershipCreateInput
-  connect: MembershipWhereUniqueInput
-}
-
-type MembershipEdge {
-  node: Membership!
-  cursor: String!
-}
-
-enum MembershipOrderByInput {
-  id_ASC
-  id_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
-  title_ASC
-  title_DESC
-  description_ASC
-  description_DESC
-  genere_ASC
-  genere_DESC
-  points_ASC
-  points_DESC
-  type_ASC
-  type_DESC
-}
-
-type MembershipPreviousValues {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  title: String!
-  description: String!
-  genere: String!
-  points: Int!
-  type: TypeMembership!
-}
-
-type MembershipSubscriptionPayload {
-  mutation: MutationType!
-  node: Membership
-  updatedFields: [String!]
-  previousValues: MembershipPreviousValues
-}
-
-input MembershipSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: MembershipWhereInput
-  AND: [MembershipSubscriptionWhereInput!]
-}
-
-input MembershipUpdateDataInput {
-  title: String
-  description: String
-  genere: String
-  points: Int
-  type: TypeMembership
-}
-
-input MembershipUpdateInput {
-  title: String
-  description: String
-  genere: String
-  points: Int
-  type: TypeMembership
-}
-
-input MembershipUpdateManyMutationInput {
-  title: String
-  description: String
-  genere: String
-  points: Int
-  type: TypeMembership
-}
-
-input MembershipUpdateOneInput {
-  create: MembershipCreateInput
-  update: MembershipUpdateDataInput
-  upsert: MembershipUpsertNestedInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: MembershipWhereUniqueInput
-}
-
-input MembershipUpsertNestedInput {
-  update: MembershipUpdateDataInput!
-  create: MembershipCreateInput!
-}
-
-input MembershipWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  title: String
-  title_not: String
-  title_in: [String!]
-  title_not_in: [String!]
-  title_lt: String
-  title_lte: String
-  title_gt: String
-  title_gte: String
-  title_contains: String
-  title_not_contains: String
-  title_starts_with: String
-  title_not_starts_with: String
-  title_ends_with: String
-  title_not_ends_with: String
-  description: String
-  description_not: String
-  description_in: [String!]
-  description_not_in: [String!]
-  description_lt: String
-  description_lte: String
-  description_gt: String
-  description_gte: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
-  genere: String
-  genere_not: String
-  genere_in: [String!]
-  genere_not_in: [String!]
-  genere_lt: String
-  genere_lte: String
-  genere_gt: String
-  genere_gte: String
-  genere_contains: String
-  genere_not_contains: String
-  genere_starts_with: String
-  genere_not_starts_with: String
-  genere_ends_with: String
-  genere_not_ends_with: String
-  points: Int
-  points_not: Int
-  points_in: [Int!]
-  points_not_in: [Int!]
-  points_lt: Int
-  points_lte: Int
-  points_gt: Int
-  points_gte: Int
-  type: TypeMembership
-  type_not: TypeMembership
-  type_in: [TypeMembership!]
-  type_not_in: [TypeMembership!]
-  AND: [MembershipWhereInput!]
-}
-
-input MembershipWhereUniqueInput {
-  id: ID
-}
-
 type Movie {
   id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  title: String!
-  sinopsis: String!
-  genere: String!
+  name: String!
+  duration: Int!
+  description: String
   clasification: String!
-  lenght: Int!
-  lenguage: String!
-  premiere: DateTime!
 }
 
 type MovieConnection {
@@ -1217,13 +709,10 @@ type MovieConnection {
 
 input MovieCreateInput {
   id: ID
-  title: String!
-  sinopsis: String!
-  genere: String!
+  name: String!
+  duration: Int!
+  description: String
   clasification: String!
-  lenght: Int!
-  lenguage: String!
-  premiere: DateTime!
 }
 
 input MovieCreateOneInput {
@@ -1239,37 +728,22 @@ type MovieEdge {
 enum MovieOrderByInput {
   id_ASC
   id_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
-  title_ASC
-  title_DESC
-  sinopsis_ASC
-  sinopsis_DESC
-  genere_ASC
-  genere_DESC
+  name_ASC
+  name_DESC
+  duration_ASC
+  duration_DESC
+  description_ASC
+  description_DESC
   clasification_ASC
   clasification_DESC
-  lenght_ASC
-  lenght_DESC
-  lenguage_ASC
-  lenguage_DESC
-  premiere_ASC
-  premiere_DESC
 }
 
 type MoviePreviousValues {
   id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  title: String!
-  sinopsis: String!
-  genere: String!
+  name: String!
+  duration: Int!
+  description: String
   clasification: String!
-  lenght: Int!
-  lenguage: String!
-  premiere: DateTime!
 }
 
 type MovieSubscriptionPayload {
@@ -1289,33 +763,24 @@ input MovieSubscriptionWhereInput {
 }
 
 input MovieUpdateDataInput {
-  title: String
-  sinopsis: String
-  genere: String
+  name: String
+  duration: Int
+  description: String
   clasification: String
-  lenght: Int
-  lenguage: String
-  premiere: DateTime
 }
 
 input MovieUpdateInput {
-  title: String
-  sinopsis: String
-  genere: String
+  name: String
+  duration: Int
+  description: String
   clasification: String
-  lenght: Int
-  lenguage: String
-  premiere: DateTime
 }
 
 input MovieUpdateManyMutationInput {
-  title: String
-  sinopsis: String
-  genere: String
+  name: String
+  duration: Int
+  description: String
   clasification: String
-  lenght: Int
-  lenguage: String
-  premiere: DateTime
 }
 
 input MovieUpdateOneRequiredInput {
@@ -1345,64 +810,42 @@ input MovieWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  title: String
-  title_not: String
-  title_in: [String!]
-  title_not_in: [String!]
-  title_lt: String
-  title_lte: String
-  title_gt: String
-  title_gte: String
-  title_contains: String
-  title_not_contains: String
-  title_starts_with: String
-  title_not_starts_with: String
-  title_ends_with: String
-  title_not_ends_with: String
-  sinopsis: String
-  sinopsis_not: String
-  sinopsis_in: [String!]
-  sinopsis_not_in: [String!]
-  sinopsis_lt: String
-  sinopsis_lte: String
-  sinopsis_gt: String
-  sinopsis_gte: String
-  sinopsis_contains: String
-  sinopsis_not_contains: String
-  sinopsis_starts_with: String
-  sinopsis_not_starts_with: String
-  sinopsis_ends_with: String
-  sinopsis_not_ends_with: String
-  genere: String
-  genere_not: String
-  genere_in: [String!]
-  genere_not_in: [String!]
-  genere_lt: String
-  genere_lte: String
-  genere_gt: String
-  genere_gte: String
-  genere_contains: String
-  genere_not_contains: String
-  genere_starts_with: String
-  genere_not_starts_with: String
-  genere_ends_with: String
-  genere_not_ends_with: String
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  duration: Int
+  duration_not: Int
+  duration_in: [Int!]
+  duration_not_in: [Int!]
+  duration_lt: Int
+  duration_lte: Int
+  duration_gt: Int
+  duration_gte: Int
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
   clasification: String
   clasification_not: String
   clasification_in: [String!]
@@ -1417,36 +860,6 @@ input MovieWhereInput {
   clasification_not_starts_with: String
   clasification_ends_with: String
   clasification_not_ends_with: String
-  lenght: Int
-  lenght_not: Int
-  lenght_in: [Int!]
-  lenght_not_in: [Int!]
-  lenght_lt: Int
-  lenght_lte: Int
-  lenght_gt: Int
-  lenght_gte: Int
-  lenguage: String
-  lenguage_not: String
-  lenguage_in: [String!]
-  lenguage_not_in: [String!]
-  lenguage_lt: String
-  lenguage_lte: String
-  lenguage_gt: String
-  lenguage_gte: String
-  lenguage_contains: String
-  lenguage_not_contains: String
-  lenguage_starts_with: String
-  lenguage_not_starts_with: String
-  lenguage_ends_with: String
-  lenguage_not_ends_with: String
-  premiere: DateTime
-  premiere_not: DateTime
-  premiere_in: [DateTime!]
-  premiere_not_in: [DateTime!]
-  premiere_lt: DateTime
-  premiere_lte: DateTime
-  premiere_gt: DateTime
-  premiere_gte: DateTime
   AND: [MovieWhereInput!]
 }
 
@@ -1461,36 +874,18 @@ type Mutation {
   upsertBillboard(where: BillboardWhereUniqueInput!, create: BillboardCreateInput!, update: BillboardUpdateInput!): Billboard!
   deleteBillboard(where: BillboardWhereUniqueInput!): Billboard
   deleteManyBillboards(where: BillboardWhereInput): BatchPayload!
-  createCombo(data: ComboCreateInput!): Combo!
-  updateCombo(data: ComboUpdateInput!, where: ComboWhereUniqueInput!): Combo
-  updateManyComboes(data: ComboUpdateManyMutationInput!, where: ComboWhereInput): BatchPayload!
-  upsertCombo(where: ComboWhereUniqueInput!, create: ComboCreateInput!, update: ComboUpdateInput!): Combo!
-  deleteCombo(where: ComboWhereUniqueInput!): Combo
-  deleteManyComboes(where: ComboWhereInput): BatchPayload!
   createCustomer(data: CustomerCreateInput!): Customer!
   updateCustomer(data: CustomerUpdateInput!, where: CustomerWhereUniqueInput!): Customer
   updateManyCustomers(data: CustomerUpdateManyMutationInput!, where: CustomerWhereInput): BatchPayload!
   upsertCustomer(where: CustomerWhereUniqueInput!, create: CustomerCreateInput!, update: CustomerUpdateInput!): Customer!
   deleteCustomer(where: CustomerWhereUniqueInput!): Customer
   deleteManyCustomers(where: CustomerWhereInput): BatchPayload!
-  createEmployee(data: EmployeeCreateInput!): Employee!
-  updateEmployee(data: EmployeeUpdateInput!, where: EmployeeWhereUniqueInput!): Employee
-  updateManyEmployees(data: EmployeeUpdateManyMutationInput!, where: EmployeeWhereInput): BatchPayload!
-  upsertEmployee(where: EmployeeWhereUniqueInput!, create: EmployeeCreateInput!, update: EmployeeUpdateInput!): Employee!
-  deleteEmployee(where: EmployeeWhereUniqueInput!): Employee
-  deleteManyEmployees(where: EmployeeWhereInput): BatchPayload!
   createItem(data: ItemCreateInput!): Item!
   updateItem(data: ItemUpdateInput!, where: ItemWhereUniqueInput!): Item
   updateManyItems(data: ItemUpdateManyMutationInput!, where: ItemWhereInput): BatchPayload!
   upsertItem(where: ItemWhereUniqueInput!, create: ItemCreateInput!, update: ItemUpdateInput!): Item!
   deleteItem(where: ItemWhereUniqueInput!): Item
   deleteManyItems(where: ItemWhereInput): BatchPayload!
-  createMembership(data: MembershipCreateInput!): Membership!
-  updateMembership(data: MembershipUpdateInput!, where: MembershipWhereUniqueInput!): Membership
-  updateManyMemberships(data: MembershipUpdateManyMutationInput!, where: MembershipWhereInput): BatchPayload!
-  upsertMembership(where: MembershipWhereUniqueInput!, create: MembershipCreateInput!, update: MembershipUpdateInput!): Membership!
-  deleteMembership(where: MembershipWhereUniqueInput!): Membership
-  deleteManyMemberships(where: MembershipWhereInput): BatchPayload!
   createMovie(data: MovieCreateInput!): Movie!
   updateMovie(data: MovieUpdateInput!, where: MovieWhereUniqueInput!): Movie
   updateManyMovies(data: MovieUpdateManyMutationInput!, where: MovieWhereInput): BatchPayload!
@@ -1521,12 +916,6 @@ type Mutation {
   upsertShow(where: ShowWhereUniqueInput!, create: ShowCreateInput!, update: ShowUpdateInput!): Show!
   deleteShow(where: ShowWhereUniqueInput!): Show
   deleteManyShows(where: ShowWhereInput): BatchPayload!
-  createTicket(data: TicketCreateInput!): Ticket!
-  updateTicket(data: TicketUpdateInput!, where: TicketWhereUniqueInput!): Ticket
-  updateManyTickets(data: TicketUpdateManyMutationInput!, where: TicketWhereInput): BatchPayload!
-  upsertTicket(where: TicketWhereUniqueInput!, create: TicketCreateInput!, update: TicketUpdateInput!): Ticket!
-  deleteTicket(where: TicketWhereUniqueInput!): Ticket
-  deleteManyTickets(where: TicketWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -1552,9 +941,7 @@ type Order {
   customer: Customer!
   price: Int!
   items(where: ItemWhereInput, orderBy: ItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Item!]
-  tickets(where: TicketWhereInput, orderBy: TicketOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Ticket!]
   discount: Int!
-  employee: Employee!
   PaymentMethod: TypePayment!
   user: User!
 }
@@ -1570,9 +957,7 @@ input OrderCreateInput {
   customer: CustomerCreateOneInput!
   price: Int!
   items: ItemCreateManyInput
-  tickets: TicketCreateManyInput
   discount: Int!
-  employee: EmployeeCreateOneInput!
   PaymentMethod: TypePayment!
   user: UserCreateOneWithoutOrdersInput!
 }
@@ -1587,9 +972,7 @@ input OrderCreateWithoutUserInput {
   customer: CustomerCreateOneInput!
   price: Int!
   items: ItemCreateManyInput
-  tickets: TicketCreateManyInput
   discount: Int!
-  employee: EmployeeCreateOneInput!
   PaymentMethod: TypePayment!
 }
 
@@ -1698,9 +1081,7 @@ input OrderUpdateInput {
   customer: CustomerUpdateOneRequiredInput
   price: Int
   items: ItemUpdateManyInput
-  tickets: TicketUpdateManyInput
   discount: Int
-  employee: EmployeeUpdateOneRequiredInput
   PaymentMethod: TypePayment
   user: UserUpdateOneRequiredWithoutOrdersInput
 }
@@ -1738,9 +1119,7 @@ input OrderUpdateWithoutUserDataInput {
   customer: CustomerUpdateOneRequiredInput
   price: Int
   items: ItemUpdateManyInput
-  tickets: TicketUpdateManyInput
   discount: Int
-  employee: EmployeeUpdateOneRequiredInput
   PaymentMethod: TypePayment
 }
 
@@ -1796,7 +1175,6 @@ input OrderWhereInput {
   price_gt: Int
   price_gte: Int
   items_some: ItemWhereInput
-  tickets_some: TicketWhereInput
   discount: Int
   discount_not: Int
   discount_in: [Int!]
@@ -1805,7 +1183,6 @@ input OrderWhereInput {
   discount_lte: Int
   discount_gt: Int
   discount_gte: Int
-  employee: EmployeeWhereInput
   PaymentMethod: TypePayment
   PaymentMethod_not: TypePayment
   PaymentMethod_in: [TypePayment!]
@@ -1829,21 +1206,12 @@ type Query {
   billboard(where: BillboardWhereUniqueInput!): Billboard
   billboards(where: BillboardWhereInput, orderBy: BillboardOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Billboard]!
   billboardsConnection(where: BillboardWhereInput, orderBy: BillboardOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BillboardConnection!
-  combo(where: ComboWhereUniqueInput!): Combo
-  comboes(where: ComboWhereInput, orderBy: ComboOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Combo]!
-  comboesConnection(where: ComboWhereInput, orderBy: ComboOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ComboConnection!
   customer(where: CustomerWhereUniqueInput!): Customer
   customers(where: CustomerWhereInput, orderBy: CustomerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Customer]!
   customersConnection(where: CustomerWhereInput, orderBy: CustomerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CustomerConnection!
-  employee(where: EmployeeWhereUniqueInput!): Employee
-  employees(where: EmployeeWhereInput, orderBy: EmployeeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Employee]!
-  employeesConnection(where: EmployeeWhereInput, orderBy: EmployeeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EmployeeConnection!
   item(where: ItemWhereUniqueInput!): Item
   items(where: ItemWhereInput, orderBy: ItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Item]!
   itemsConnection(where: ItemWhereInput, orderBy: ItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ItemConnection!
-  membership(where: MembershipWhereUniqueInput!): Membership
-  memberships(where: MembershipWhereInput, orderBy: MembershipOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Membership]!
-  membershipsConnection(where: MembershipWhereInput, orderBy: MembershipOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MembershipConnection!
   movie(where: MovieWhereUniqueInput!): Movie
   movies(where: MovieWhereInput, orderBy: MovieOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Movie]!
   moviesConnection(where: MovieWhereInput, orderBy: MovieOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MovieConnection!
@@ -1859,9 +1227,6 @@ type Query {
   show(where: ShowWhereUniqueInput!): Show
   shows(where: ShowWhereInput, orderBy: ShowOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Show]!
   showsConnection(where: ShowWhereInput, orderBy: ShowOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ShowConnection!
-  ticket(where: TicketWhereUniqueInput!): Ticket
-  tickets(where: TicketWhereInput, orderBy: TicketOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Ticket]!
-  ticketsConnection(where: TicketWhereInput, orderBy: TicketOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TicketConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -2056,11 +1421,6 @@ input SeatCreateManyInput {
   connect: [SeatWhereUniqueInput!]
 }
 
-input SeatCreateOneInput {
-  create: SeatCreateInput
-  connect: SeatWhereUniqueInput
-}
-
 type SeatEdge {
   node: Seat!
   cursor: String!
@@ -2224,21 +1584,9 @@ input SeatUpdateManyWithWhereNestedInput {
   data: SeatUpdateManyDataInput!
 }
 
-input SeatUpdateOneRequiredInput {
-  create: SeatCreateInput
-  update: SeatUpdateDataInput
-  upsert: SeatUpsertNestedInput
-  connect: SeatWhereUniqueInput
-}
-
 input SeatUpdateWithWhereUniqueNestedInput {
   where: SeatWhereUniqueInput!
   data: SeatUpdateDataInput!
-}
-
-input SeatUpsertNestedInput {
-  update: SeatUpdateDataInput!
-  create: SeatCreateInput!
 }
 
 input SeatUpsertWithWhereUniqueNestedInput {
@@ -2344,11 +1692,6 @@ input ShowCreateInput {
 input ShowCreateManyInput {
   create: [ShowCreateInput!]
   connect: [ShowWhereUniqueInput!]
-}
-
-input ShowCreateOneInput {
-  create: ShowCreateInput
-  connect: ShowWhereUniqueInput
 }
 
 type ShowEdge {
@@ -2477,21 +1820,9 @@ input ShowUpdateManyWithWhereNestedInput {
   data: ShowUpdateManyDataInput!
 }
 
-input ShowUpdateOneRequiredInput {
-  create: ShowCreateInput
-  update: ShowUpdateDataInput
-  upsert: ShowUpsertNestedInput
-  connect: ShowWhereUniqueInput
-}
-
 input ShowUpdateWithWhereUniqueNestedInput {
   where: ShowWhereUniqueInput!
   data: ShowUpdateDataInput!
-}
-
-input ShowUpsertNestedInput {
-  update: ShowUpdateDataInput!
-  create: ShowCreateInput!
 }
 
 input ShowUpsertWithWhereUniqueNestedInput {
@@ -2556,269 +1887,20 @@ input ShowWhereUniqueInput {
 
 type Subscription {
   billboard(where: BillboardSubscriptionWhereInput): BillboardSubscriptionPayload
-  combo(where: ComboSubscriptionWhereInput): ComboSubscriptionPayload
   customer(where: CustomerSubscriptionWhereInput): CustomerSubscriptionPayload
-  employee(where: EmployeeSubscriptionWhereInput): EmployeeSubscriptionPayload
   item(where: ItemSubscriptionWhereInput): ItemSubscriptionPayload
-  membership(where: MembershipSubscriptionWhereInput): MembershipSubscriptionPayload
   movie(where: MovieSubscriptionWhereInput): MovieSubscriptionPayload
   order(where: OrderSubscriptionWhereInput): OrderSubscriptionPayload
   room(where: RoomSubscriptionWhereInput): RoomSubscriptionPayload
   seat(where: SeatSubscriptionWhereInput): SeatSubscriptionPayload
   show(where: ShowSubscriptionWhereInput): ShowSubscriptionPayload
-  ticket(where: TicketSubscriptionWhereInput): TicketSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
-}
-
-type Ticket {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  seat: Seat!
-  show: Show!
-  cost: Int!
-  points: Int!
-}
-
-type TicketConnection {
-  pageInfo: PageInfo!
-  edges: [TicketEdge]!
-  aggregate: AggregateTicket!
-}
-
-input TicketCreateInput {
-  id: ID
-  seat: SeatCreateOneInput!
-  show: ShowCreateOneInput!
-  cost: Int!
-  points: Int!
-}
-
-input TicketCreateManyInput {
-  create: [TicketCreateInput!]
-  connect: [TicketWhereUniqueInput!]
-}
-
-type TicketEdge {
-  node: Ticket!
-  cursor: String!
-}
-
-enum TicketOrderByInput {
-  id_ASC
-  id_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
-  cost_ASC
-  cost_DESC
-  points_ASC
-  points_DESC
-}
-
-type TicketPreviousValues {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  cost: Int!
-  points: Int!
-}
-
-input TicketScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  cost: Int
-  cost_not: Int
-  cost_in: [Int!]
-  cost_not_in: [Int!]
-  cost_lt: Int
-  cost_lte: Int
-  cost_gt: Int
-  cost_gte: Int
-  points: Int
-  points_not: Int
-  points_in: [Int!]
-  points_not_in: [Int!]
-  points_lt: Int
-  points_lte: Int
-  points_gt: Int
-  points_gte: Int
-  AND: [TicketScalarWhereInput!]
-  OR: [TicketScalarWhereInput!]
-  NOT: [TicketScalarWhereInput!]
-}
-
-type TicketSubscriptionPayload {
-  mutation: MutationType!
-  node: Ticket
-  updatedFields: [String!]
-  previousValues: TicketPreviousValues
-}
-
-input TicketSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: TicketWhereInput
-  AND: [TicketSubscriptionWhereInput!]
-}
-
-input TicketUpdateDataInput {
-  seat: SeatUpdateOneRequiredInput
-  show: ShowUpdateOneRequiredInput
-  cost: Int
-  points: Int
-}
-
-input TicketUpdateInput {
-  seat: SeatUpdateOneRequiredInput
-  show: ShowUpdateOneRequiredInput
-  cost: Int
-  points: Int
-}
-
-input TicketUpdateManyDataInput {
-  cost: Int
-  points: Int
-}
-
-input TicketUpdateManyInput {
-  create: [TicketCreateInput!]
-  update: [TicketUpdateWithWhereUniqueNestedInput!]
-  upsert: [TicketUpsertWithWhereUniqueNestedInput!]
-  delete: [TicketWhereUniqueInput!]
-  connect: [TicketWhereUniqueInput!]
-  set: [TicketWhereUniqueInput!]
-  disconnect: [TicketWhereUniqueInput!]
-  deleteMany: [TicketScalarWhereInput!]
-  updateMany: [TicketUpdateManyWithWhereNestedInput!]
-}
-
-input TicketUpdateManyMutationInput {
-  cost: Int
-  points: Int
-}
-
-input TicketUpdateManyWithWhereNestedInput {
-  where: TicketScalarWhereInput!
-  data: TicketUpdateManyDataInput!
-}
-
-input TicketUpdateWithWhereUniqueNestedInput {
-  where: TicketWhereUniqueInput!
-  data: TicketUpdateDataInput!
-}
-
-input TicketUpsertWithWhereUniqueNestedInput {
-  where: TicketWhereUniqueInput!
-  update: TicketUpdateDataInput!
-  create: TicketCreateInput!
-}
-
-input TicketWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  seat: SeatWhereInput
-  show: ShowWhereInput
-  cost: Int
-  cost_not: Int
-  cost_in: [Int!]
-  cost_not_in: [Int!]
-  cost_lt: Int
-  cost_lte: Int
-  cost_gt: Int
-  cost_gte: Int
-  points: Int
-  points_not: Int
-  points_in: [Int!]
-  points_not_in: [Int!]
-  points_lt: Int
-  points_lte: Int
-  points_gt: Int
-  points_gte: Int
-  AND: [TicketWhereInput!]
-}
-
-input TicketWhereUniqueInput {
-  id: ID
-}
-
-enum TypeMembership {
-  FAN
-  SUPERFAN
-  DIOS
 }
 
 enum TypePayment {
   CASH
   CARD
   POINTS
-}
-
-enum TypeRol {
-  CASHIER
-  MANAGER
-  CLEANER
-  PROJECTION
-  GROSERY
 }
 
 enum TypeRoom {
@@ -2853,7 +1935,6 @@ type User {
   name: String!
   lastName: String
   points: Int
-  membership: Membership
   type: TypeUser
   token: String
   orders(where: OrderWhereInput, orderBy: OrderOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Order!]
@@ -2874,7 +1955,6 @@ input UserCreateInput {
   name: String!
   lastName: String
   points: Int
-  membership: MembershipCreateOneInput
   type: TypeUser
   token: String
   orders: OrderCreateManyWithoutUserInput
@@ -2899,7 +1979,6 @@ input UserCreateWithoutOrdersInput {
   name: String!
   lastName: String
   points: Int
-  membership: MembershipCreateOneInput
   type: TypeUser
   token: String
 }
@@ -2975,7 +2054,6 @@ input UserUpdateDataInput {
   name: String
   lastName: String
   points: Int
-  membership: MembershipUpdateOneInput
   type: TypeUser
   token: String
   orders: OrderUpdateManyWithoutUserInput
@@ -2989,7 +2067,6 @@ input UserUpdateInput {
   name: String
   lastName: String
   points: Int
-  membership: MembershipUpdateOneInput
   type: TypeUser
   token: String
   orders: OrderUpdateManyWithoutUserInput
@@ -3016,13 +2093,6 @@ input UserUpdateOneInput {
   connect: UserWhereUniqueInput
 }
 
-input UserUpdateOneRequiredInput {
-  create: UserCreateInput
-  update: UserUpdateDataInput
-  upsert: UserUpsertNestedInput
-  connect: UserWhereUniqueInput
-}
-
 input UserUpdateOneRequiredWithoutOrdersInput {
   create: UserCreateWithoutOrdersInput
   update: UserUpdateWithoutOrdersDataInput
@@ -3038,7 +2108,6 @@ input UserUpdateWithoutOrdersDataInput {
   name: String
   lastName: String
   points: Int
-  membership: MembershipUpdateOneInput
   type: TypeUser
   token: String
 }
@@ -3170,7 +2239,6 @@ input UserWhereInput {
   points_lte: Int
   points_gt: Int
   points_gte: Int
-  membership: MembershipWhereInput
   type: TypeUser
   type_not: TypeUser
   type_in: [TypeUser!]

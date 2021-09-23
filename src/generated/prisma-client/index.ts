@@ -17,17 +17,13 @@ export type Maybe<T> = T | undefined | null;
 
 export interface Exists {
   billboard: (where?: BillboardWhereInput) => Promise<boolean>;
-  combo: (where?: ComboWhereInput) => Promise<boolean>;
   customer: (where?: CustomerWhereInput) => Promise<boolean>;
-  employee: (where?: EmployeeWhereInput) => Promise<boolean>;
   item: (where?: ItemWhereInput) => Promise<boolean>;
-  membership: (where?: MembershipWhereInput) => Promise<boolean>;
   movie: (where?: MovieWhereInput) => Promise<boolean>;
   order: (where?: OrderWhereInput) => Promise<boolean>;
   room: (where?: RoomWhereInput) => Promise<boolean>;
   seat: (where?: SeatWhereInput) => Promise<boolean>;
   show: (where?: ShowWhereInput) => Promise<boolean>;
-  ticket: (where?: TicketWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
 }
 
@@ -69,25 +65,6 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => BillboardConnectionPromise;
-  combo: (where: ComboWhereUniqueInput) => ComboNullablePromise;
-  comboes: (args?: {
-    where?: ComboWhereInput;
-    orderBy?: ComboOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => FragmentableArray<Combo>;
-  comboesConnection: (args?: {
-    where?: ComboWhereInput;
-    orderBy?: ComboOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => ComboConnectionPromise;
   customer: (where: CustomerWhereUniqueInput) => CustomerNullablePromise;
   customers: (args?: {
     where?: CustomerWhereInput;
@@ -107,25 +84,6 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => CustomerConnectionPromise;
-  employee: (where: EmployeeWhereUniqueInput) => EmployeeNullablePromise;
-  employees: (args?: {
-    where?: EmployeeWhereInput;
-    orderBy?: EmployeeOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => FragmentableArray<Employee>;
-  employeesConnection: (args?: {
-    where?: EmployeeWhereInput;
-    orderBy?: EmployeeOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => EmployeeConnectionPromise;
   item: (where: ItemWhereUniqueInput) => ItemNullablePromise;
   items: (args?: {
     where?: ItemWhereInput;
@@ -145,25 +103,6 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => ItemConnectionPromise;
-  membership: (where: MembershipWhereUniqueInput) => MembershipNullablePromise;
-  memberships: (args?: {
-    where?: MembershipWhereInput;
-    orderBy?: MembershipOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => FragmentableArray<Membership>;
-  membershipsConnection: (args?: {
-    where?: MembershipWhereInput;
-    orderBy?: MembershipOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => MembershipConnectionPromise;
   movie: (where: MovieWhereUniqueInput) => MovieNullablePromise;
   movies: (args?: {
     where?: MovieWhereInput;
@@ -259,25 +198,6 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => ShowConnectionPromise;
-  ticket: (where: TicketWhereUniqueInput) => TicketNullablePromise;
-  tickets: (args?: {
-    where?: TicketWhereInput;
-    orderBy?: TicketOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => FragmentableArray<Ticket>;
-  ticketsConnection: (args?: {
-    where?: TicketWhereInput;
-    orderBy?: TicketOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => TicketConnectionPromise;
   user: (where: UserWhereUniqueInput) => UserNullablePromise;
   users: (args?: {
     where?: UserWhereInput;
@@ -319,22 +239,6 @@ export interface Prisma {
   }) => BillboardPromise;
   deleteBillboard: (where: BillboardWhereUniqueInput) => BillboardPromise;
   deleteManyBillboards: (where?: BillboardWhereInput) => BatchPayloadPromise;
-  createCombo: (data: ComboCreateInput) => ComboPromise;
-  updateCombo: (args: {
-    data: ComboUpdateInput;
-    where: ComboWhereUniqueInput;
-  }) => ComboPromise;
-  updateManyComboes: (args: {
-    data: ComboUpdateManyMutationInput;
-    where?: ComboWhereInput;
-  }) => BatchPayloadPromise;
-  upsertCombo: (args: {
-    where: ComboWhereUniqueInput;
-    create: ComboCreateInput;
-    update: ComboUpdateInput;
-  }) => ComboPromise;
-  deleteCombo: (where: ComboWhereUniqueInput) => ComboPromise;
-  deleteManyComboes: (where?: ComboWhereInput) => BatchPayloadPromise;
   createCustomer: (data: CustomerCreateInput) => CustomerPromise;
   updateCustomer: (args: {
     data: CustomerUpdateInput;
@@ -351,22 +255,6 @@ export interface Prisma {
   }) => CustomerPromise;
   deleteCustomer: (where: CustomerWhereUniqueInput) => CustomerPromise;
   deleteManyCustomers: (where?: CustomerWhereInput) => BatchPayloadPromise;
-  createEmployee: (data: EmployeeCreateInput) => EmployeePromise;
-  updateEmployee: (args: {
-    data: EmployeeUpdateInput;
-    where: EmployeeWhereUniqueInput;
-  }) => EmployeePromise;
-  updateManyEmployees: (args: {
-    data: EmployeeUpdateManyMutationInput;
-    where?: EmployeeWhereInput;
-  }) => BatchPayloadPromise;
-  upsertEmployee: (args: {
-    where: EmployeeWhereUniqueInput;
-    create: EmployeeCreateInput;
-    update: EmployeeUpdateInput;
-  }) => EmployeePromise;
-  deleteEmployee: (where: EmployeeWhereUniqueInput) => EmployeePromise;
-  deleteManyEmployees: (where?: EmployeeWhereInput) => BatchPayloadPromise;
   createItem: (data: ItemCreateInput) => ItemPromise;
   updateItem: (args: {
     data: ItemUpdateInput;
@@ -383,22 +271,6 @@ export interface Prisma {
   }) => ItemPromise;
   deleteItem: (where: ItemWhereUniqueInput) => ItemPromise;
   deleteManyItems: (where?: ItemWhereInput) => BatchPayloadPromise;
-  createMembership: (data: MembershipCreateInput) => MembershipPromise;
-  updateMembership: (args: {
-    data: MembershipUpdateInput;
-    where: MembershipWhereUniqueInput;
-  }) => MembershipPromise;
-  updateManyMemberships: (args: {
-    data: MembershipUpdateManyMutationInput;
-    where?: MembershipWhereInput;
-  }) => BatchPayloadPromise;
-  upsertMembership: (args: {
-    where: MembershipWhereUniqueInput;
-    create: MembershipCreateInput;
-    update: MembershipUpdateInput;
-  }) => MembershipPromise;
-  deleteMembership: (where: MembershipWhereUniqueInput) => MembershipPromise;
-  deleteManyMemberships: (where?: MembershipWhereInput) => BatchPayloadPromise;
   createMovie: (data: MovieCreateInput) => MoviePromise;
   updateMovie: (args: {
     data: MovieUpdateInput;
@@ -479,22 +351,6 @@ export interface Prisma {
   }) => ShowPromise;
   deleteShow: (where: ShowWhereUniqueInput) => ShowPromise;
   deleteManyShows: (where?: ShowWhereInput) => BatchPayloadPromise;
-  createTicket: (data: TicketCreateInput) => TicketPromise;
-  updateTicket: (args: {
-    data: TicketUpdateInput;
-    where: TicketWhereUniqueInput;
-  }) => TicketPromise;
-  updateManyTickets: (args: {
-    data: TicketUpdateManyMutationInput;
-    where?: TicketWhereInput;
-  }) => BatchPayloadPromise;
-  upsertTicket: (args: {
-    where: TicketWhereUniqueInput;
-    create: TicketCreateInput;
-    update: TicketUpdateInput;
-  }) => TicketPromise;
-  deleteTicket: (where: TicketWhereUniqueInput) => TicketPromise;
-  deleteManyTickets: (where?: TicketWhereInput) => BatchPayloadPromise;
   createUser: (data: UserCreateInput) => UserPromise;
   updateUser: (args: {
     data: UserUpdateInput;
@@ -523,21 +379,12 @@ export interface Subscription {
   billboard: (
     where?: BillboardSubscriptionWhereInput
   ) => BillboardSubscriptionPayloadSubscription;
-  combo: (
-    where?: ComboSubscriptionWhereInput
-  ) => ComboSubscriptionPayloadSubscription;
   customer: (
     where?: CustomerSubscriptionWhereInput
   ) => CustomerSubscriptionPayloadSubscription;
-  employee: (
-    where?: EmployeeSubscriptionWhereInput
-  ) => EmployeeSubscriptionPayloadSubscription;
   item: (
     where?: ItemSubscriptionWhereInput
   ) => ItemSubscriptionPayloadSubscription;
-  membership: (
-    where?: MembershipSubscriptionWhereInput
-  ) => MembershipSubscriptionPayloadSubscription;
   movie: (
     where?: MovieSubscriptionWhereInput
   ) => MovieSubscriptionPayloadSubscription;
@@ -553,9 +400,6 @@ export interface Subscription {
   show: (
     where?: ShowSubscriptionWhereInput
   ) => ShowSubscriptionPayloadSubscription;
-  ticket: (
-    where?: TicketSubscriptionWhereInput
-  ) => TicketSubscriptionPayloadSubscription;
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
@@ -619,6 +463,24 @@ export type BillboardOrderByInput =
   | "endAt_ASC"
   | "endAt_DESC";
 
+export type TypeUser = "ADMIN" | "EMPLOYEE" | "CUSTOMER";
+
+export type TypePayment = "CASH" | "CARD" | "POINTS";
+
+export type OrderOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "price_ASC"
+  | "price_DESC"
+  | "discount_ASC"
+  | "discount_DESC"
+  | "PaymentMethod_ASC"
+  | "PaymentMethod_DESC";
+
 export type ItemOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -639,57 +501,6 @@ export type ItemOrderByInput =
   | "valuePoints_ASC"
   | "valuePoints_DESC";
 
-export type ComboOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC";
-
-export type TypeMembership = "FAN" | "SUPERFAN" | "DIOS";
-
-export type TypeUser = "ADMIN" | "EMPLOYEE" | "CUSTOMER";
-
-export type TypeRol =
-  | "CASHIER"
-  | "MANAGER"
-  | "CLEANER"
-  | "PROJECTION"
-  | "GROSERY";
-
-export type TypePayment = "CASH" | "CARD" | "POINTS";
-
-export type OrderOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "price_ASC"
-  | "price_DESC"
-  | "discount_ASC"
-  | "discount_DESC"
-  | "PaymentMethod_ASC"
-  | "PaymentMethod_DESC";
-
-export type TicketOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "cost_ASC"
-  | "cost_DESC"
-  | "points_ASC"
-  | "points_DESC";
-
 export type CustomerOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -700,55 +511,17 @@ export type CustomerOrderByInput =
   | "alias_ASC"
   | "alias_DESC";
 
-export type EmployeeOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "rol_ASC"
-  | "rol_DESC";
-
-export type MembershipOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "genere_ASC"
-  | "genere_DESC"
-  | "points_ASC"
-  | "points_DESC"
-  | "type_ASC"
-  | "type_DESC";
-
 export type MovieOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "sinopsis_ASC"
-  | "sinopsis_DESC"
-  | "genere_ASC"
-  | "genere_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "duration_ASC"
+  | "duration_DESC"
+  | "description_ASC"
+  | "description_DESC"
   | "clasification_ASC"
-  | "clasification_DESC"
-  | "lenght_ASC"
-  | "lenght_DESC"
-  | "lenguage_ASC"
-  | "lenguage_DESC"
-  | "premiere_ASC"
-  | "premiere_DESC";
+  | "clasification_DESC";
 
 export type RoomOrderByInput =
   | "id_ASC"
@@ -861,64 +634,42 @@ export interface MovieWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  sinopsis?: Maybe<String>;
-  sinopsis_not?: Maybe<String>;
-  sinopsis_in?: Maybe<String[] | String>;
-  sinopsis_not_in?: Maybe<String[] | String>;
-  sinopsis_lt?: Maybe<String>;
-  sinopsis_lte?: Maybe<String>;
-  sinopsis_gt?: Maybe<String>;
-  sinopsis_gte?: Maybe<String>;
-  sinopsis_contains?: Maybe<String>;
-  sinopsis_not_contains?: Maybe<String>;
-  sinopsis_starts_with?: Maybe<String>;
-  sinopsis_not_starts_with?: Maybe<String>;
-  sinopsis_ends_with?: Maybe<String>;
-  sinopsis_not_ends_with?: Maybe<String>;
-  genere?: Maybe<String>;
-  genere_not?: Maybe<String>;
-  genere_in?: Maybe<String[] | String>;
-  genere_not_in?: Maybe<String[] | String>;
-  genere_lt?: Maybe<String>;
-  genere_lte?: Maybe<String>;
-  genere_gt?: Maybe<String>;
-  genere_gte?: Maybe<String>;
-  genere_contains?: Maybe<String>;
-  genere_not_contains?: Maybe<String>;
-  genere_starts_with?: Maybe<String>;
-  genere_not_starts_with?: Maybe<String>;
-  genere_ends_with?: Maybe<String>;
-  genere_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  duration?: Maybe<Int>;
+  duration_not?: Maybe<Int>;
+  duration_in?: Maybe<Int[] | Int>;
+  duration_not_in?: Maybe<Int[] | Int>;
+  duration_lt?: Maybe<Int>;
+  duration_lte?: Maybe<Int>;
+  duration_gt?: Maybe<Int>;
+  duration_gte?: Maybe<Int>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
   clasification?: Maybe<String>;
   clasification_not?: Maybe<String>;
   clasification_in?: Maybe<String[] | String>;
@@ -933,36 +684,6 @@ export interface MovieWhereInput {
   clasification_not_starts_with?: Maybe<String>;
   clasification_ends_with?: Maybe<String>;
   clasification_not_ends_with?: Maybe<String>;
-  lenght?: Maybe<Int>;
-  lenght_not?: Maybe<Int>;
-  lenght_in?: Maybe<Int[] | Int>;
-  lenght_not_in?: Maybe<Int[] | Int>;
-  lenght_lt?: Maybe<Int>;
-  lenght_lte?: Maybe<Int>;
-  lenght_gt?: Maybe<Int>;
-  lenght_gte?: Maybe<Int>;
-  lenguage?: Maybe<String>;
-  lenguage_not?: Maybe<String>;
-  lenguage_in?: Maybe<String[] | String>;
-  lenguage_not_in?: Maybe<String[] | String>;
-  lenguage_lt?: Maybe<String>;
-  lenguage_lte?: Maybe<String>;
-  lenguage_gt?: Maybe<String>;
-  lenguage_gte?: Maybe<String>;
-  lenguage_contains?: Maybe<String>;
-  lenguage_not_contains?: Maybe<String>;
-  lenguage_starts_with?: Maybe<String>;
-  lenguage_not_starts_with?: Maybe<String>;
-  lenguage_ends_with?: Maybe<String>;
-  lenguage_not_ends_with?: Maybe<String>;
-  premiere?: Maybe<DateTimeInput>;
-  premiere_not?: Maybe<DateTimeInput>;
-  premiere_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  premiere_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  premiere_lt?: Maybe<DateTimeInput>;
-  premiere_lte?: Maybe<DateTimeInput>;
-  premiere_gt?: Maybe<DateTimeInput>;
-  premiere_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<MovieWhereInput[] | MovieWhereInput>;
 }
 
@@ -1148,173 +869,6 @@ export interface BillboardWhereInput {
   AND?: Maybe<BillboardWhereInput[] | BillboardWhereInput>;
 }
 
-export type ComboWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface ItemWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  sku?: Maybe<String>;
-  sku_not?: Maybe<String>;
-  sku_in?: Maybe<String[] | String>;
-  sku_not_in?: Maybe<String[] | String>;
-  sku_lt?: Maybe<String>;
-  sku_lte?: Maybe<String>;
-  sku_gt?: Maybe<String>;
-  sku_gte?: Maybe<String>;
-  sku_contains?: Maybe<String>;
-  sku_not_contains?: Maybe<String>;
-  sku_starts_with?: Maybe<String>;
-  sku_not_starts_with?: Maybe<String>;
-  sku_ends_with?: Maybe<String>;
-  sku_not_ends_with?: Maybe<String>;
-  cost?: Maybe<Int>;
-  cost_not?: Maybe<Int>;
-  cost_in?: Maybe<Int[] | Int>;
-  cost_not_in?: Maybe<Int[] | Int>;
-  cost_lt?: Maybe<Int>;
-  cost_lte?: Maybe<Int>;
-  cost_gt?: Maybe<Int>;
-  cost_gte?: Maybe<Int>;
-  amount?: Maybe<Int>;
-  amount_not?: Maybe<Int>;
-  amount_in?: Maybe<Int[] | Int>;
-  amount_not_in?: Maybe<Int[] | Int>;
-  amount_lt?: Maybe<Int>;
-  amount_lte?: Maybe<Int>;
-  amount_gt?: Maybe<Int>;
-  amount_gte?: Maybe<Int>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  valuePoints?: Maybe<Int>;
-  valuePoints_not?: Maybe<Int>;
-  valuePoints_in?: Maybe<Int[] | Int>;
-  valuePoints_not_in?: Maybe<Int[] | Int>;
-  valuePoints_lt?: Maybe<Int>;
-  valuePoints_lte?: Maybe<Int>;
-  valuePoints_gt?: Maybe<Int>;
-  valuePoints_gte?: Maybe<Int>;
-  AND?: Maybe<ItemWhereInput[] | ItemWhereInput>;
-}
-
-export interface ComboWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  items_some?: Maybe<ItemWhereInput>;
-  AND?: Maybe<ComboWhereInput[] | ComboWhereInput>;
-}
-
 export type CustomerWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
@@ -1360,7 +914,6 @@ export interface OrderWhereInput {
   price_gt?: Maybe<Int>;
   price_gte?: Maybe<Int>;
   items_some?: Maybe<ItemWhereInput>;
-  tickets_some?: Maybe<TicketWhereInput>;
   discount?: Maybe<Int>;
   discount_not?: Maybe<Int>;
   discount_in?: Maybe<Int[] | Int>;
@@ -1369,7 +922,6 @@ export interface OrderWhereInput {
   discount_lte?: Maybe<Int>;
   discount_gt?: Maybe<Int>;
   discount_gte?: Maybe<Int>;
-  employee?: Maybe<EmployeeWhereInput>;
   PaymentMethod?: Maybe<TypePayment>;
   PaymentMethod_not?: Maybe<TypePayment>;
   PaymentMethod_in?: Maybe<TypePayment[] | TypePayment>;
@@ -1544,7 +1096,6 @@ export interface UserWhereInput {
   points_lte?: Maybe<Int>;
   points_gt?: Maybe<Int>;
   points_gte?: Maybe<Int>;
-  membership?: Maybe<MembershipWhereInput>;
   type?: Maybe<TypeUser>;
   type_not?: Maybe<TypeUser>;
   type_in?: Maybe<TypeUser[] | TypeUser>;
@@ -1567,7 +1118,7 @@ export interface UserWhereInput {
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
-export interface MembershipWhereInput {
+export interface ItemWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -1598,20 +1149,50 @@ export interface MembershipWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
+  sku?: Maybe<String>;
+  sku_not?: Maybe<String>;
+  sku_in?: Maybe<String[] | String>;
+  sku_not_in?: Maybe<String[] | String>;
+  sku_lt?: Maybe<String>;
+  sku_lte?: Maybe<String>;
+  sku_gt?: Maybe<String>;
+  sku_gte?: Maybe<String>;
+  sku_contains?: Maybe<String>;
+  sku_not_contains?: Maybe<String>;
+  sku_starts_with?: Maybe<String>;
+  sku_not_starts_with?: Maybe<String>;
+  sku_ends_with?: Maybe<String>;
+  sku_not_ends_with?: Maybe<String>;
+  cost?: Maybe<Int>;
+  cost_not?: Maybe<Int>;
+  cost_in?: Maybe<Int[] | Int>;
+  cost_not_in?: Maybe<Int[] | Int>;
+  cost_lt?: Maybe<Int>;
+  cost_lte?: Maybe<Int>;
+  cost_gt?: Maybe<Int>;
+  cost_gte?: Maybe<Int>;
+  amount?: Maybe<Int>;
+  amount_not?: Maybe<Int>;
+  amount_in?: Maybe<Int[] | Int>;
+  amount_not_in?: Maybe<Int[] | Int>;
+  amount_lt?: Maybe<Int>;
+  amount_lte?: Maybe<Int>;
+  amount_gt?: Maybe<Int>;
+  amount_gte?: Maybe<Int>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
   description?: Maybe<String>;
   description_not?: Maybe<String>;
   description_in?: Maybe<String[] | String>;
@@ -1626,135 +1207,18 @@ export interface MembershipWhereInput {
   description_not_starts_with?: Maybe<String>;
   description_ends_with?: Maybe<String>;
   description_not_ends_with?: Maybe<String>;
-  genere?: Maybe<String>;
-  genere_not?: Maybe<String>;
-  genere_in?: Maybe<String[] | String>;
-  genere_not_in?: Maybe<String[] | String>;
-  genere_lt?: Maybe<String>;
-  genere_lte?: Maybe<String>;
-  genere_gt?: Maybe<String>;
-  genere_gte?: Maybe<String>;
-  genere_contains?: Maybe<String>;
-  genere_not_contains?: Maybe<String>;
-  genere_starts_with?: Maybe<String>;
-  genere_not_starts_with?: Maybe<String>;
-  genere_ends_with?: Maybe<String>;
-  genere_not_ends_with?: Maybe<String>;
-  points?: Maybe<Int>;
-  points_not?: Maybe<Int>;
-  points_in?: Maybe<Int[] | Int>;
-  points_not_in?: Maybe<Int[] | Int>;
-  points_lt?: Maybe<Int>;
-  points_lte?: Maybe<Int>;
-  points_gt?: Maybe<Int>;
-  points_gte?: Maybe<Int>;
-  type?: Maybe<TypeMembership>;
-  type_not?: Maybe<TypeMembership>;
-  type_in?: Maybe<TypeMembership[] | TypeMembership>;
-  type_not_in?: Maybe<TypeMembership[] | TypeMembership>;
-  AND?: Maybe<MembershipWhereInput[] | MembershipWhereInput>;
+  valuePoints?: Maybe<Int>;
+  valuePoints_not?: Maybe<Int>;
+  valuePoints_in?: Maybe<Int[] | Int>;
+  valuePoints_not_in?: Maybe<Int[] | Int>;
+  valuePoints_lt?: Maybe<Int>;
+  valuePoints_lte?: Maybe<Int>;
+  valuePoints_gt?: Maybe<Int>;
+  valuePoints_gte?: Maybe<Int>;
+  AND?: Maybe<ItemWhereInput[] | ItemWhereInput>;
 }
-
-export interface TicketWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  seat?: Maybe<SeatWhereInput>;
-  show?: Maybe<ShowWhereInput>;
-  cost?: Maybe<Int>;
-  cost_not?: Maybe<Int>;
-  cost_in?: Maybe<Int[] | Int>;
-  cost_not_in?: Maybe<Int[] | Int>;
-  cost_lt?: Maybe<Int>;
-  cost_lte?: Maybe<Int>;
-  cost_gt?: Maybe<Int>;
-  cost_gte?: Maybe<Int>;
-  points?: Maybe<Int>;
-  points_not?: Maybe<Int>;
-  points_in?: Maybe<Int[] | Int>;
-  points_not_in?: Maybe<Int[] | Int>;
-  points_lt?: Maybe<Int>;
-  points_lte?: Maybe<Int>;
-  points_gt?: Maybe<Int>;
-  points_gte?: Maybe<Int>;
-  AND?: Maybe<TicketWhereInput[] | TicketWhereInput>;
-}
-
-export interface EmployeeWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  rol?: Maybe<TypeRol>;
-  rol_not?: Maybe<TypeRol>;
-  rol_in?: Maybe<TypeRol[] | TypeRol>;
-  rol_not_in?: Maybe<TypeRol[] | TypeRol>;
-  user?: Maybe<UserWhereInput>;
-  AND?: Maybe<EmployeeWhereInput[] | EmployeeWhereInput>;
-}
-
-export type EmployeeWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
 
 export type ItemWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export type MembershipWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
@@ -1775,10 +1239,6 @@ export type SeatWhereUniqueInput = AtLeastOne<{
 }>;
 
 export type ShowWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export type TicketWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
@@ -1817,13 +1277,10 @@ export interface MovieCreateOneInput {
 
 export interface MovieCreateInput {
   id?: Maybe<ID_Input>;
-  title: String;
-  sinopsis: String;
-  genere: String;
+  name: String;
+  duration: Int;
+  description?: Maybe<String>;
   clasification: String;
-  lenght: Int;
-  lenguage: String;
-  premiere: DateTimeInput;
 }
 
 export interface RoomCreateOneInput {
@@ -1898,13 +1355,10 @@ export interface MovieUpdateOneRequiredInput {
 }
 
 export interface MovieUpdateDataInput {
-  title?: Maybe<String>;
-  sinopsis?: Maybe<String>;
-  genere?: Maybe<String>;
+  name?: Maybe<String>;
+  duration?: Maybe<Int>;
+  description?: Maybe<String>;
   clasification?: Maybe<String>;
-  lenght?: Maybe<Int>;
-  lenguage?: Maybe<String>;
-  premiere?: Maybe<DateTimeInput>;
 }
 
 export interface MovieUpsertNestedInput {
@@ -2122,11 +1576,48 @@ export interface BillboardUpdateManyMutationInput {
   endAt?: Maybe<DateTimeInput>;
 }
 
-export interface ComboCreateInput {
+export interface CustomerCreateInput {
   id?: Maybe<ID_Input>;
+  alias: String;
+  user?: Maybe<UserCreateOneInput>;
+}
+
+export interface UserCreateOneInput {
+  create?: Maybe<UserCreateInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateInput {
+  id?: Maybe<ID_Input>;
+  email: String;
+  phone?: Maybe<Int>;
+  password?: Maybe<String>;
+  rfc?: Maybe<String>;
   name: String;
-  description?: Maybe<String>;
+  lastName?: Maybe<String>;
+  points?: Maybe<Int>;
+  type?: Maybe<TypeUser>;
+  token?: Maybe<String>;
+  orders?: Maybe<OrderCreateManyWithoutUserInput>;
+}
+
+export interface OrderCreateManyWithoutUserInput {
+  create?: Maybe<OrderCreateWithoutUserInput[] | OrderCreateWithoutUserInput>;
+  connect?: Maybe<OrderWhereUniqueInput[] | OrderWhereUniqueInput>;
+}
+
+export interface OrderCreateWithoutUserInput {
+  id?: Maybe<ID_Input>;
+  customer: CustomerCreateOneInput;
+  price: Int;
   items?: Maybe<ItemCreateManyInput>;
+  discount: Int;
+  PaymentMethod: TypePayment;
+}
+
+export interface CustomerCreateOneInput {
+  create?: Maybe<CustomerCreateInput>;
+  connect?: Maybe<CustomerWhereUniqueInput>;
 }
 
 export interface ItemCreateManyInput {
@@ -2144,10 +1635,81 @@ export interface ItemCreateInput {
   valuePoints?: Maybe<Int>;
 }
 
-export interface ComboUpdateInput {
+export interface CustomerUpdateInput {
+  alias?: Maybe<String>;
+  user?: Maybe<UserUpdateOneInput>;
+}
+
+export interface UserUpdateOneInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateDataInput {
+  email?: Maybe<String>;
+  phone?: Maybe<Int>;
+  password?: Maybe<String>;
+  rfc?: Maybe<String>;
   name?: Maybe<String>;
-  description?: Maybe<String>;
+  lastName?: Maybe<String>;
+  points?: Maybe<Int>;
+  type?: Maybe<TypeUser>;
+  token?: Maybe<String>;
+  orders?: Maybe<OrderUpdateManyWithoutUserInput>;
+}
+
+export interface OrderUpdateManyWithoutUserInput {
+  create?: Maybe<OrderCreateWithoutUserInput[] | OrderCreateWithoutUserInput>;
+  delete?: Maybe<OrderWhereUniqueInput[] | OrderWhereUniqueInput>;
+  connect?: Maybe<OrderWhereUniqueInput[] | OrderWhereUniqueInput>;
+  set?: Maybe<OrderWhereUniqueInput[] | OrderWhereUniqueInput>;
+  disconnect?: Maybe<OrderWhereUniqueInput[] | OrderWhereUniqueInput>;
+  update?: Maybe<
+    | OrderUpdateWithWhereUniqueWithoutUserInput[]
+    | OrderUpdateWithWhereUniqueWithoutUserInput
+  >;
+  upsert?: Maybe<
+    | OrderUpsertWithWhereUniqueWithoutUserInput[]
+    | OrderUpsertWithWhereUniqueWithoutUserInput
+  >;
+  deleteMany?: Maybe<OrderScalarWhereInput[] | OrderScalarWhereInput>;
+  updateMany?: Maybe<
+    OrderUpdateManyWithWhereNestedInput[] | OrderUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface OrderUpdateWithWhereUniqueWithoutUserInput {
+  where: OrderWhereUniqueInput;
+  data: OrderUpdateWithoutUserDataInput;
+}
+
+export interface OrderUpdateWithoutUserDataInput {
+  customer?: Maybe<CustomerUpdateOneRequiredInput>;
+  price?: Maybe<Int>;
   items?: Maybe<ItemUpdateManyInput>;
+  discount?: Maybe<Int>;
+  PaymentMethod?: Maybe<TypePayment>;
+}
+
+export interface CustomerUpdateOneRequiredInput {
+  create?: Maybe<CustomerCreateInput>;
+  update?: Maybe<CustomerUpdateDataInput>;
+  upsert?: Maybe<CustomerUpsertNestedInput>;
+  connect?: Maybe<CustomerWhereUniqueInput>;
+}
+
+export interface CustomerUpdateDataInput {
+  alias?: Maybe<String>;
+  user?: Maybe<UserUpdateOneInput>;
+}
+
+export interface CustomerUpsertNestedInput {
+  update: CustomerUpdateDataInput;
+  create: CustomerCreateInput;
 }
 
 export interface ItemUpdateManyInput {
@@ -2306,362 +1868,6 @@ export interface ItemUpdateManyDataInput {
   valuePoints?: Maybe<Int>;
 }
 
-export interface ComboUpdateManyMutationInput {
-  name?: Maybe<String>;
-  description?: Maybe<String>;
-}
-
-export interface CustomerCreateInput {
-  id?: Maybe<ID_Input>;
-  alias: String;
-  user?: Maybe<UserCreateOneInput>;
-}
-
-export interface UserCreateOneInput {
-  create?: Maybe<UserCreateInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  email: String;
-  phone?: Maybe<Int>;
-  password?: Maybe<String>;
-  rfc?: Maybe<String>;
-  name: String;
-  lastName?: Maybe<String>;
-  points?: Maybe<Int>;
-  membership?: Maybe<MembershipCreateOneInput>;
-  type?: Maybe<TypeUser>;
-  token?: Maybe<String>;
-  orders?: Maybe<OrderCreateManyWithoutUserInput>;
-}
-
-export interface MembershipCreateOneInput {
-  create?: Maybe<MembershipCreateInput>;
-  connect?: Maybe<MembershipWhereUniqueInput>;
-}
-
-export interface MembershipCreateInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description: String;
-  genere: String;
-  points: Int;
-  type: TypeMembership;
-}
-
-export interface OrderCreateManyWithoutUserInput {
-  create?: Maybe<OrderCreateWithoutUserInput[] | OrderCreateWithoutUserInput>;
-  connect?: Maybe<OrderWhereUniqueInput[] | OrderWhereUniqueInput>;
-}
-
-export interface OrderCreateWithoutUserInput {
-  id?: Maybe<ID_Input>;
-  customer: CustomerCreateOneInput;
-  price: Int;
-  items?: Maybe<ItemCreateManyInput>;
-  tickets?: Maybe<TicketCreateManyInput>;
-  discount: Int;
-  employee: EmployeeCreateOneInput;
-  PaymentMethod: TypePayment;
-}
-
-export interface CustomerCreateOneInput {
-  create?: Maybe<CustomerCreateInput>;
-  connect?: Maybe<CustomerWhereUniqueInput>;
-}
-
-export interface TicketCreateManyInput {
-  create?: Maybe<TicketCreateInput[] | TicketCreateInput>;
-  connect?: Maybe<TicketWhereUniqueInput[] | TicketWhereUniqueInput>;
-}
-
-export interface TicketCreateInput {
-  id?: Maybe<ID_Input>;
-  seat: SeatCreateOneInput;
-  show: ShowCreateOneInput;
-  cost: Int;
-  points: Int;
-}
-
-export interface SeatCreateOneInput {
-  create?: Maybe<SeatCreateInput>;
-  connect?: Maybe<SeatWhereUniqueInput>;
-}
-
-export interface ShowCreateOneInput {
-  create?: Maybe<ShowCreateInput>;
-  connect?: Maybe<ShowWhereUniqueInput>;
-}
-
-export interface EmployeeCreateOneInput {
-  create?: Maybe<EmployeeCreateInput>;
-  connect?: Maybe<EmployeeWhereUniqueInput>;
-}
-
-export interface EmployeeCreateInput {
-  id?: Maybe<ID_Input>;
-  rol: TypeRol;
-  user: UserCreateOneInput;
-}
-
-export interface CustomerUpdateInput {
-  alias?: Maybe<String>;
-  user?: Maybe<UserUpdateOneInput>;
-}
-
-export interface UserUpdateOneInput {
-  create?: Maybe<UserCreateInput>;
-  update?: Maybe<UserUpdateDataInput>;
-  upsert?: Maybe<UserUpsertNestedInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserUpdateDataInput {
-  email?: Maybe<String>;
-  phone?: Maybe<Int>;
-  password?: Maybe<String>;
-  rfc?: Maybe<String>;
-  name?: Maybe<String>;
-  lastName?: Maybe<String>;
-  points?: Maybe<Int>;
-  membership?: Maybe<MembershipUpdateOneInput>;
-  type?: Maybe<TypeUser>;
-  token?: Maybe<String>;
-  orders?: Maybe<OrderUpdateManyWithoutUserInput>;
-}
-
-export interface MembershipUpdateOneInput {
-  create?: Maybe<MembershipCreateInput>;
-  update?: Maybe<MembershipUpdateDataInput>;
-  upsert?: Maybe<MembershipUpsertNestedInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<MembershipWhereUniqueInput>;
-}
-
-export interface MembershipUpdateDataInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  genere?: Maybe<String>;
-  points?: Maybe<Int>;
-  type?: Maybe<TypeMembership>;
-}
-
-export interface MembershipUpsertNestedInput {
-  update: MembershipUpdateDataInput;
-  create: MembershipCreateInput;
-}
-
-export interface OrderUpdateManyWithoutUserInput {
-  create?: Maybe<OrderCreateWithoutUserInput[] | OrderCreateWithoutUserInput>;
-  delete?: Maybe<OrderWhereUniqueInput[] | OrderWhereUniqueInput>;
-  connect?: Maybe<OrderWhereUniqueInput[] | OrderWhereUniqueInput>;
-  set?: Maybe<OrderWhereUniqueInput[] | OrderWhereUniqueInput>;
-  disconnect?: Maybe<OrderWhereUniqueInput[] | OrderWhereUniqueInput>;
-  update?: Maybe<
-    | OrderUpdateWithWhereUniqueWithoutUserInput[]
-    | OrderUpdateWithWhereUniqueWithoutUserInput
-  >;
-  upsert?: Maybe<
-    | OrderUpsertWithWhereUniqueWithoutUserInput[]
-    | OrderUpsertWithWhereUniqueWithoutUserInput
-  >;
-  deleteMany?: Maybe<OrderScalarWhereInput[] | OrderScalarWhereInput>;
-  updateMany?: Maybe<
-    OrderUpdateManyWithWhereNestedInput[] | OrderUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface OrderUpdateWithWhereUniqueWithoutUserInput {
-  where: OrderWhereUniqueInput;
-  data: OrderUpdateWithoutUserDataInput;
-}
-
-export interface OrderUpdateWithoutUserDataInput {
-  customer?: Maybe<CustomerUpdateOneRequiredInput>;
-  price?: Maybe<Int>;
-  items?: Maybe<ItemUpdateManyInput>;
-  tickets?: Maybe<TicketUpdateManyInput>;
-  discount?: Maybe<Int>;
-  employee?: Maybe<EmployeeUpdateOneRequiredInput>;
-  PaymentMethod?: Maybe<TypePayment>;
-}
-
-export interface CustomerUpdateOneRequiredInput {
-  create?: Maybe<CustomerCreateInput>;
-  update?: Maybe<CustomerUpdateDataInput>;
-  upsert?: Maybe<CustomerUpsertNestedInput>;
-  connect?: Maybe<CustomerWhereUniqueInput>;
-}
-
-export interface CustomerUpdateDataInput {
-  alias?: Maybe<String>;
-  user?: Maybe<UserUpdateOneInput>;
-}
-
-export interface CustomerUpsertNestedInput {
-  update: CustomerUpdateDataInput;
-  create: CustomerCreateInput;
-}
-
-export interface TicketUpdateManyInput {
-  create?: Maybe<TicketCreateInput[] | TicketCreateInput>;
-  update?: Maybe<
-    | TicketUpdateWithWhereUniqueNestedInput[]
-    | TicketUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | TicketUpsertWithWhereUniqueNestedInput[]
-    | TicketUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<TicketWhereUniqueInput[] | TicketWhereUniqueInput>;
-  connect?: Maybe<TicketWhereUniqueInput[] | TicketWhereUniqueInput>;
-  set?: Maybe<TicketWhereUniqueInput[] | TicketWhereUniqueInput>;
-  disconnect?: Maybe<TicketWhereUniqueInput[] | TicketWhereUniqueInput>;
-  deleteMany?: Maybe<TicketScalarWhereInput[] | TicketScalarWhereInput>;
-  updateMany?: Maybe<
-    | TicketUpdateManyWithWhereNestedInput[]
-    | TicketUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface TicketUpdateWithWhereUniqueNestedInput {
-  where: TicketWhereUniqueInput;
-  data: TicketUpdateDataInput;
-}
-
-export interface TicketUpdateDataInput {
-  seat?: Maybe<SeatUpdateOneRequiredInput>;
-  show?: Maybe<ShowUpdateOneRequiredInput>;
-  cost?: Maybe<Int>;
-  points?: Maybe<Int>;
-}
-
-export interface SeatUpdateOneRequiredInput {
-  create?: Maybe<SeatCreateInput>;
-  update?: Maybe<SeatUpdateDataInput>;
-  upsert?: Maybe<SeatUpsertNestedInput>;
-  connect?: Maybe<SeatWhereUniqueInput>;
-}
-
-export interface SeatUpsertNestedInput {
-  update: SeatUpdateDataInput;
-  create: SeatCreateInput;
-}
-
-export interface ShowUpdateOneRequiredInput {
-  create?: Maybe<ShowCreateInput>;
-  update?: Maybe<ShowUpdateDataInput>;
-  upsert?: Maybe<ShowUpsertNestedInput>;
-  connect?: Maybe<ShowWhereUniqueInput>;
-}
-
-export interface ShowUpsertNestedInput {
-  update: ShowUpdateDataInput;
-  create: ShowCreateInput;
-}
-
-export interface TicketUpsertWithWhereUniqueNestedInput {
-  where: TicketWhereUniqueInput;
-  update: TicketUpdateDataInput;
-  create: TicketCreateInput;
-}
-
-export interface TicketScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  cost?: Maybe<Int>;
-  cost_not?: Maybe<Int>;
-  cost_in?: Maybe<Int[] | Int>;
-  cost_not_in?: Maybe<Int[] | Int>;
-  cost_lt?: Maybe<Int>;
-  cost_lte?: Maybe<Int>;
-  cost_gt?: Maybe<Int>;
-  cost_gte?: Maybe<Int>;
-  points?: Maybe<Int>;
-  points_not?: Maybe<Int>;
-  points_in?: Maybe<Int[] | Int>;
-  points_not_in?: Maybe<Int[] | Int>;
-  points_lt?: Maybe<Int>;
-  points_lte?: Maybe<Int>;
-  points_gt?: Maybe<Int>;
-  points_gte?: Maybe<Int>;
-  AND?: Maybe<TicketScalarWhereInput[] | TicketScalarWhereInput>;
-  OR?: Maybe<TicketScalarWhereInput[] | TicketScalarWhereInput>;
-  NOT?: Maybe<TicketScalarWhereInput[] | TicketScalarWhereInput>;
-}
-
-export interface TicketUpdateManyWithWhereNestedInput {
-  where: TicketScalarWhereInput;
-  data: TicketUpdateManyDataInput;
-}
-
-export interface TicketUpdateManyDataInput {
-  cost?: Maybe<Int>;
-  points?: Maybe<Int>;
-}
-
-export interface EmployeeUpdateOneRequiredInput {
-  create?: Maybe<EmployeeCreateInput>;
-  update?: Maybe<EmployeeUpdateDataInput>;
-  upsert?: Maybe<EmployeeUpsertNestedInput>;
-  connect?: Maybe<EmployeeWhereUniqueInput>;
-}
-
-export interface EmployeeUpdateDataInput {
-  rol?: Maybe<TypeRol>;
-  user?: Maybe<UserUpdateOneRequiredInput>;
-}
-
-export interface UserUpdateOneRequiredInput {
-  create?: Maybe<UserCreateInput>;
-  update?: Maybe<UserUpdateDataInput>;
-  upsert?: Maybe<UserUpsertNestedInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserUpsertNestedInput {
-  update: UserUpdateDataInput;
-  create: UserCreateInput;
-}
-
-export interface EmployeeUpsertNestedInput {
-  update: EmployeeUpdateDataInput;
-  create: EmployeeCreateInput;
-}
-
 export interface OrderUpsertWithWhereUniqueWithoutUserInput {
   where: OrderWhereUniqueInput;
   update: OrderUpdateWithoutUserDataInput;
@@ -2735,17 +1941,13 @@ export interface OrderUpdateManyDataInput {
   PaymentMethod?: Maybe<TypePayment>;
 }
 
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
 export interface CustomerUpdateManyMutationInput {
   alias?: Maybe<String>;
-}
-
-export interface EmployeeUpdateInput {
-  rol?: Maybe<TypeRol>;
-  user?: Maybe<UserUpdateOneRequiredInput>;
-}
-
-export interface EmployeeUpdateManyMutationInput {
-  rol?: Maybe<TypeRol>;
 }
 
 export interface ItemUpdateInput {
@@ -2766,40 +1968,18 @@ export interface ItemUpdateManyMutationInput {
   valuePoints?: Maybe<Int>;
 }
 
-export interface MembershipUpdateInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  genere?: Maybe<String>;
-  points?: Maybe<Int>;
-  type?: Maybe<TypeMembership>;
-}
-
-export interface MembershipUpdateManyMutationInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  genere?: Maybe<String>;
-  points?: Maybe<Int>;
-  type?: Maybe<TypeMembership>;
-}
-
 export interface MovieUpdateInput {
-  title?: Maybe<String>;
-  sinopsis?: Maybe<String>;
-  genere?: Maybe<String>;
+  name?: Maybe<String>;
+  duration?: Maybe<Int>;
+  description?: Maybe<String>;
   clasification?: Maybe<String>;
-  lenght?: Maybe<Int>;
-  lenguage?: Maybe<String>;
-  premiere?: Maybe<DateTimeInput>;
 }
 
 export interface MovieUpdateManyMutationInput {
-  title?: Maybe<String>;
-  sinopsis?: Maybe<String>;
-  genere?: Maybe<String>;
+  name?: Maybe<String>;
+  duration?: Maybe<Int>;
+  description?: Maybe<String>;
   clasification?: Maybe<String>;
-  lenght?: Maybe<Int>;
-  lenguage?: Maybe<String>;
-  premiere?: Maybe<DateTimeInput>;
 }
 
 export interface OrderCreateInput {
@@ -2807,9 +1987,7 @@ export interface OrderCreateInput {
   customer: CustomerCreateOneInput;
   price: Int;
   items?: Maybe<ItemCreateManyInput>;
-  tickets?: Maybe<TicketCreateManyInput>;
   discount: Int;
-  employee: EmployeeCreateOneInput;
   PaymentMethod: TypePayment;
   user: UserCreateOneWithoutOrdersInput;
 }
@@ -2828,7 +2006,6 @@ export interface UserCreateWithoutOrdersInput {
   name: String;
   lastName?: Maybe<String>;
   points?: Maybe<Int>;
-  membership?: Maybe<MembershipCreateOneInput>;
   type?: Maybe<TypeUser>;
   token?: Maybe<String>;
 }
@@ -2837,9 +2014,7 @@ export interface OrderUpdateInput {
   customer?: Maybe<CustomerUpdateOneRequiredInput>;
   price?: Maybe<Int>;
   items?: Maybe<ItemUpdateManyInput>;
-  tickets?: Maybe<TicketUpdateManyInput>;
   discount?: Maybe<Int>;
-  employee?: Maybe<EmployeeUpdateOneRequiredInput>;
   PaymentMethod?: Maybe<TypePayment>;
   user?: Maybe<UserUpdateOneRequiredWithoutOrdersInput>;
 }
@@ -2859,7 +2034,6 @@ export interface UserUpdateWithoutOrdersDataInput {
   name?: Maybe<String>;
   lastName?: Maybe<String>;
   points?: Maybe<Int>;
-  membership?: Maybe<MembershipUpdateOneInput>;
   type?: Maybe<TypeUser>;
   token?: Maybe<String>;
 }
@@ -2912,18 +2086,6 @@ export interface ShowUpdateManyMutationInput {
   schedule?: Maybe<String>;
 }
 
-export interface TicketUpdateInput {
-  seat?: Maybe<SeatUpdateOneRequiredInput>;
-  show?: Maybe<ShowUpdateOneRequiredInput>;
-  cost?: Maybe<Int>;
-  points?: Maybe<Int>;
-}
-
-export interface TicketUpdateManyMutationInput {
-  cost?: Maybe<Int>;
-  points?: Maybe<Int>;
-}
-
 export interface UserUpdateInput {
   email?: Maybe<String>;
   phone?: Maybe<Int>;
@@ -2932,7 +2094,6 @@ export interface UserUpdateInput {
   name?: Maybe<String>;
   lastName?: Maybe<String>;
   points?: Maybe<Int>;
-  membership?: Maybe<MembershipUpdateOneInput>;
   type?: Maybe<TypeUser>;
   token?: Maybe<String>;
   orders?: Maybe<OrderUpdateManyWithoutUserInput>;
@@ -2961,15 +2122,6 @@ export interface BillboardSubscriptionWhereInput {
   >;
 }
 
-export interface ComboSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ComboWhereInput>;
-  AND?: Maybe<ComboSubscriptionWhereInput[] | ComboSubscriptionWhereInput>;
-}
-
 export interface CustomerSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
@@ -2981,17 +2133,6 @@ export interface CustomerSubscriptionWhereInput {
   >;
 }
 
-export interface EmployeeSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<EmployeeWhereInput>;
-  AND?: Maybe<
-    EmployeeSubscriptionWhereInput[] | EmployeeSubscriptionWhereInput
-  >;
-}
-
 export interface ItemSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
@@ -2999,17 +2140,6 @@ export interface ItemSubscriptionWhereInput {
   updatedFields_contains_some?: Maybe<String[] | String>;
   node?: Maybe<ItemWhereInput>;
   AND?: Maybe<ItemSubscriptionWhereInput[] | ItemSubscriptionWhereInput>;
-}
-
-export interface MembershipSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<MembershipWhereInput>;
-  AND?: Maybe<
-    MembershipSubscriptionWhereInput[] | MembershipSubscriptionWhereInput
-  >;
 }
 
 export interface MovieSubscriptionWhereInput {
@@ -3055,15 +2185,6 @@ export interface ShowSubscriptionWhereInput {
   updatedFields_contains_some?: Maybe<String[] | String>;
   node?: Maybe<ShowWhereInput>;
   AND?: Maybe<ShowSubscriptionWhereInput[] | ShowSubscriptionWhereInput>;
-}
-
-export interface TicketSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<TicketWhereInput>;
-  AND?: Maybe<TicketSubscriptionWhereInput[] | TicketSubscriptionWhereInput>;
 }
 
 export interface UserSubscriptionWhereInput {
@@ -3186,58 +2307,38 @@ export interface ShowNullablePromise
 
 export interface Movie {
   id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  title: String;
-  sinopsis: String;
-  genere: String;
+  name: String;
+  duration: Int;
+  description?: String;
   clasification: String;
-  lenght: Int;
-  lenguage: String;
-  premiere: DateTimeOutput;
 }
 
 export interface MoviePromise extends Promise<Movie>, Fragmentable {
   id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  title: () => Promise<String>;
-  sinopsis: () => Promise<String>;
-  genere: () => Promise<String>;
+  name: () => Promise<String>;
+  duration: () => Promise<Int>;
+  description: () => Promise<String>;
   clasification: () => Promise<String>;
-  lenght: () => Promise<Int>;
-  lenguage: () => Promise<String>;
-  premiere: () => Promise<DateTimeOutput>;
 }
 
 export interface MovieSubscription
   extends Promise<AsyncIterator<Movie>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  title: () => Promise<AsyncIterator<String>>;
-  sinopsis: () => Promise<AsyncIterator<String>>;
-  genere: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  duration: () => Promise<AsyncIterator<Int>>;
+  description: () => Promise<AsyncIterator<String>>;
   clasification: () => Promise<AsyncIterator<String>>;
-  lenght: () => Promise<AsyncIterator<Int>>;
-  lenguage: () => Promise<AsyncIterator<String>>;
-  premiere: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface MovieNullablePromise
   extends Promise<Movie | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  title: () => Promise<String>;
-  sinopsis: () => Promise<String>;
-  genere: () => Promise<String>;
+  name: () => Promise<String>;
+  duration: () => Promise<Int>;
+  description: () => Promise<String>;
   clasification: () => Promise<String>;
-  lenght: () => Promise<Int>;
-  lenguage: () => Promise<String>;
-  premiere: () => Promise<DateTimeOutput>;
 }
 
 export interface Room {
@@ -3430,175 +2531,6 @@ export interface AggregateBillboardSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface Combo {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  name: String;
-  description?: String;
-}
-
-export interface ComboPromise extends Promise<Combo>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  items: <T = FragmentableArray<Item>>(args?: {
-    where?: ItemWhereInput;
-    orderBy?: ItemOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface ComboSubscription
-  extends Promise<AsyncIterator<Combo>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  items: <T = Promise<AsyncIterator<ItemSubscription>>>(args?: {
-    where?: ItemWhereInput;
-    orderBy?: ItemOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface ComboNullablePromise
-  extends Promise<Combo | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  items: <T = FragmentableArray<Item>>(args?: {
-    where?: ItemWhereInput;
-    orderBy?: ItemOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface Item {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  sku: String;
-  cost: Int;
-  amount: Int;
-  name: String;
-  description: String;
-  valuePoints?: Int;
-}
-
-export interface ItemPromise extends Promise<Item>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sku: () => Promise<String>;
-  cost: () => Promise<Int>;
-  amount: () => Promise<Int>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  valuePoints: () => Promise<Int>;
-}
-
-export interface ItemSubscription
-  extends Promise<AsyncIterator<Item>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  sku: () => Promise<AsyncIterator<String>>;
-  cost: () => Promise<AsyncIterator<Int>>;
-  amount: () => Promise<AsyncIterator<Int>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  valuePoints: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ItemNullablePromise
-  extends Promise<Item | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  sku: () => Promise<String>;
-  cost: () => Promise<Int>;
-  amount: () => Promise<Int>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-  valuePoints: () => Promise<Int>;
-}
-
-export interface ComboConnection {
-  pageInfo: PageInfo;
-  edges: ComboEdge[];
-}
-
-export interface ComboConnectionPromise
-  extends Promise<ComboConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ComboEdge>>() => T;
-  aggregate: <T = AggregateComboPromise>() => T;
-}
-
-export interface ComboConnectionSubscription
-  extends Promise<AsyncIterator<ComboConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ComboEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateComboSubscription>() => T;
-}
-
-export interface ComboEdge {
-  node: Combo;
-  cursor: String;
-}
-
-export interface ComboEdgePromise extends Promise<ComboEdge>, Fragmentable {
-  node: <T = ComboPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ComboEdgeSubscription
-  extends Promise<AsyncIterator<ComboEdge>>,
-    Fragmentable {
-  node: <T = ComboSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateCombo {
-  count: Int;
-}
-
-export interface AggregateComboPromise
-  extends Promise<AggregateCombo>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateComboSubscription
-  extends Promise<AsyncIterator<AggregateCombo>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
 export interface Customer {
   id: ID_Output;
   createdAt: DateTimeOutput;
@@ -3660,7 +2592,6 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   name: () => Promise<String>;
   lastName: () => Promise<String>;
   points: () => Promise<Int>;
-  membership: <T = MembershipPromise>() => T;
   type: () => Promise<TypeUser>;
   token: () => Promise<String>;
   orders: <T = FragmentableArray<Order>>(args?: {
@@ -3687,7 +2618,6 @@ export interface UserSubscription
   name: () => Promise<AsyncIterator<String>>;
   lastName: () => Promise<AsyncIterator<String>>;
   points: () => Promise<AsyncIterator<Int>>;
-  membership: <T = MembershipSubscription>() => T;
   type: () => Promise<AsyncIterator<TypeUser>>;
   token: () => Promise<AsyncIterator<String>>;
   orders: <T = Promise<AsyncIterator<OrderSubscription>>>(args?: {
@@ -3714,7 +2644,6 @@ export interface UserNullablePromise
   name: () => Promise<String>;
   lastName: () => Promise<String>;
   points: () => Promise<Int>;
-  membership: <T = MembershipPromise>() => T;
   type: () => Promise<TypeUser>;
   token: () => Promise<String>;
   orders: <T = FragmentableArray<Order>>(args?: {
@@ -3726,54 +2655,6 @@ export interface UserNullablePromise
     first?: Int;
     last?: Int;
   }) => T;
-}
-
-export interface Membership {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  title: String;
-  description: String;
-  genere: String;
-  points: Int;
-  type: TypeMembership;
-}
-
-export interface MembershipPromise extends Promise<Membership>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  genere: () => Promise<String>;
-  points: () => Promise<Int>;
-  type: () => Promise<TypeMembership>;
-}
-
-export interface MembershipSubscription
-  extends Promise<AsyncIterator<Membership>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  genere: () => Promise<AsyncIterator<String>>;
-  points: () => Promise<AsyncIterator<Int>>;
-  type: () => Promise<AsyncIterator<TypeMembership>>;
-}
-
-export interface MembershipNullablePromise
-  extends Promise<Membership | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  genere: () => Promise<String>;
-  points: () => Promise<Int>;
-  type: () => Promise<TypeMembership>;
 }
 
 export interface Order {
@@ -3800,17 +2681,7 @@ export interface OrderPromise extends Promise<Order>, Fragmentable {
     first?: Int;
     last?: Int;
   }) => T;
-  tickets: <T = FragmentableArray<Ticket>>(args?: {
-    where?: TicketWhereInput;
-    orderBy?: TicketOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
   discount: () => Promise<Int>;
-  employee: <T = EmployeePromise>() => T;
   PaymentMethod: () => Promise<TypePayment>;
   user: <T = UserPromise>() => T;
 }
@@ -3832,17 +2703,7 @@ export interface OrderSubscription
     first?: Int;
     last?: Int;
   }) => T;
-  tickets: <T = Promise<AsyncIterator<TicketSubscription>>>(args?: {
-    where?: TicketWhereInput;
-    orderBy?: TicketOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
   discount: () => Promise<AsyncIterator<Int>>;
-  employee: <T = EmployeeSubscription>() => T;
   PaymentMethod: () => Promise<AsyncIterator<TypePayment>>;
   user: <T = UserSubscription>() => T;
 }
@@ -3864,96 +2725,61 @@ export interface OrderNullablePromise
     first?: Int;
     last?: Int;
   }) => T;
-  tickets: <T = FragmentableArray<Ticket>>(args?: {
-    where?: TicketWhereInput;
-    orderBy?: TicketOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
   discount: () => Promise<Int>;
-  employee: <T = EmployeePromise>() => T;
   PaymentMethod: () => Promise<TypePayment>;
   user: <T = UserPromise>() => T;
 }
 
-export interface Ticket {
+export interface Item {
   id: ID_Output;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
+  sku: String;
   cost: Int;
-  points: Int;
+  amount: Int;
+  name: String;
+  description: String;
+  valuePoints?: Int;
 }
 
-export interface TicketPromise extends Promise<Ticket>, Fragmentable {
+export interface ItemPromise extends Promise<Item>, Fragmentable {
   id: () => Promise<ID_Output>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
-  seat: <T = SeatPromise>() => T;
-  show: <T = ShowPromise>() => T;
+  sku: () => Promise<String>;
   cost: () => Promise<Int>;
-  points: () => Promise<Int>;
+  amount: () => Promise<Int>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+  valuePoints: () => Promise<Int>;
 }
 
-export interface TicketSubscription
-  extends Promise<AsyncIterator<Ticket>>,
+export interface ItemSubscription
+  extends Promise<AsyncIterator<Item>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  seat: <T = SeatSubscription>() => T;
-  show: <T = ShowSubscription>() => T;
+  sku: () => Promise<AsyncIterator<String>>;
   cost: () => Promise<AsyncIterator<Int>>;
-  points: () => Promise<AsyncIterator<Int>>;
+  amount: () => Promise<AsyncIterator<Int>>;
+  name: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  valuePoints: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface TicketNullablePromise
-  extends Promise<Ticket | null>,
+export interface ItemNullablePromise
+  extends Promise<Item | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
-  seat: <T = SeatPromise>() => T;
-  show: <T = ShowPromise>() => T;
+  sku: () => Promise<String>;
   cost: () => Promise<Int>;
-  points: () => Promise<Int>;
-}
-
-export interface Employee {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  rol: TypeRol;
-}
-
-export interface EmployeePromise extends Promise<Employee>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  rol: () => Promise<TypeRol>;
-  user: <T = UserPromise>() => T;
-}
-
-export interface EmployeeSubscription
-  extends Promise<AsyncIterator<Employee>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  rol: () => Promise<AsyncIterator<TypeRol>>;
-  user: <T = UserSubscription>() => T;
-}
-
-export interface EmployeeNullablePromise
-  extends Promise<Employee | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  rol: () => Promise<TypeRol>;
-  user: <T = UserPromise>() => T;
+  amount: () => Promise<Int>;
+  name: () => Promise<String>;
+  description: () => Promise<String>;
+  valuePoints: () => Promise<Int>;
 }
 
 export interface CustomerConnection {
@@ -4012,62 +2838,6 @@ export interface AggregateCustomerSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface EmployeeConnection {
-  pageInfo: PageInfo;
-  edges: EmployeeEdge[];
-}
-
-export interface EmployeeConnectionPromise
-  extends Promise<EmployeeConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<EmployeeEdge>>() => T;
-  aggregate: <T = AggregateEmployeePromise>() => T;
-}
-
-export interface EmployeeConnectionSubscription
-  extends Promise<AsyncIterator<EmployeeConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<EmployeeEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateEmployeeSubscription>() => T;
-}
-
-export interface EmployeeEdge {
-  node: Employee;
-  cursor: String;
-}
-
-export interface EmployeeEdgePromise
-  extends Promise<EmployeeEdge>,
-    Fragmentable {
-  node: <T = EmployeePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface EmployeeEdgeSubscription
-  extends Promise<AsyncIterator<EmployeeEdge>>,
-    Fragmentable {
-  node: <T = EmployeeSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateEmployee {
-  count: Int;
-}
-
-export interface AggregateEmployeePromise
-  extends Promise<AggregateEmployee>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateEmployeeSubscription
-  extends Promise<AsyncIterator<AggregateEmployee>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
 export interface ItemConnection {
   pageInfo: PageInfo;
   edges: ItemEdge[];
@@ -4118,62 +2888,6 @@ export interface AggregateItemPromise
 
 export interface AggregateItemSubscription
   extends Promise<AsyncIterator<AggregateItem>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface MembershipConnection {
-  pageInfo: PageInfo;
-  edges: MembershipEdge[];
-}
-
-export interface MembershipConnectionPromise
-  extends Promise<MembershipConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<MembershipEdge>>() => T;
-  aggregate: <T = AggregateMembershipPromise>() => T;
-}
-
-export interface MembershipConnectionSubscription
-  extends Promise<AsyncIterator<MembershipConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<MembershipEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateMembershipSubscription>() => T;
-}
-
-export interface MembershipEdge {
-  node: Membership;
-  cursor: String;
-}
-
-export interface MembershipEdgePromise
-  extends Promise<MembershipEdge>,
-    Fragmentable {
-  node: <T = MembershipPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface MembershipEdgeSubscription
-  extends Promise<AsyncIterator<MembershipEdge>>,
-    Fragmentable {
-  node: <T = MembershipSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateMembership {
-  count: Int;
-}
-
-export interface AggregateMembershipPromise
-  extends Promise<AggregateMembership>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateMembershipSubscription
-  extends Promise<AsyncIterator<AggregateMembership>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -4448,60 +3162,6 @@ export interface AggregateShowSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface TicketConnection {
-  pageInfo: PageInfo;
-  edges: TicketEdge[];
-}
-
-export interface TicketConnectionPromise
-  extends Promise<TicketConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<TicketEdge>>() => T;
-  aggregate: <T = AggregateTicketPromise>() => T;
-}
-
-export interface TicketConnectionSubscription
-  extends Promise<AsyncIterator<TicketConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<TicketEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateTicketSubscription>() => T;
-}
-
-export interface TicketEdge {
-  node: Ticket;
-  cursor: String;
-}
-
-export interface TicketEdgePromise extends Promise<TicketEdge>, Fragmentable {
-  node: <T = TicketPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface TicketEdgeSubscription
-  extends Promise<AsyncIterator<TicketEdge>>,
-    Fragmentable {
-  node: <T = TicketSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateTicket {
-  count: Int;
-}
-
-export interface AggregateTicketPromise
-  extends Promise<AggregateTicket>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateTicketSubscription
-  extends Promise<AsyncIterator<AggregateTicket>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
 export interface UserConnection {
   pageInfo: PageInfo;
   edges: UserEdge[];
@@ -4628,59 +3288,6 @@ export interface BillboardPreviousValuesSubscription
   endAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ComboSubscriptionPayload {
-  mutation: MutationType;
-  node: Combo;
-  updatedFields: String[];
-  previousValues: ComboPreviousValues;
-}
-
-export interface ComboSubscriptionPayloadPromise
-  extends Promise<ComboSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ComboPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ComboPreviousValuesPromise>() => T;
-}
-
-export interface ComboSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ComboSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ComboSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ComboPreviousValuesSubscription>() => T;
-}
-
-export interface ComboPreviousValues {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  name: String;
-  description?: String;
-}
-
-export interface ComboPreviousValuesPromise
-  extends Promise<ComboPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  name: () => Promise<String>;
-  description: () => Promise<String>;
-}
-
-export interface ComboPreviousValuesSubscription
-  extends Promise<AsyncIterator<ComboPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  name: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-}
-
 export interface CustomerSubscriptionPayload {
   mutation: MutationType;
   node: Customer;
@@ -4729,56 +3336,6 @@ export interface CustomerPreviousValuesSubscription
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   alias: () => Promise<AsyncIterator<String>>;
-}
-
-export interface EmployeeSubscriptionPayload {
-  mutation: MutationType;
-  node: Employee;
-  updatedFields: String[];
-  previousValues: EmployeePreviousValues;
-}
-
-export interface EmployeeSubscriptionPayloadPromise
-  extends Promise<EmployeeSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = EmployeePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = EmployeePreviousValuesPromise>() => T;
-}
-
-export interface EmployeeSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<EmployeeSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = EmployeeSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = EmployeePreviousValuesSubscription>() => T;
-}
-
-export interface EmployeePreviousValues {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  rol: TypeRol;
-}
-
-export interface EmployeePreviousValuesPromise
-  extends Promise<EmployeePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  rol: () => Promise<TypeRol>;
-}
-
-export interface EmployeePreviousValuesSubscription
-  extends Promise<AsyncIterator<EmployeePreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  rol: () => Promise<AsyncIterator<TypeRol>>;
 }
 
 export interface ItemSubscriptionPayload {
@@ -4846,68 +3403,6 @@ export interface ItemPreviousValuesSubscription
   valuePoints: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface MembershipSubscriptionPayload {
-  mutation: MutationType;
-  node: Membership;
-  updatedFields: String[];
-  previousValues: MembershipPreviousValues;
-}
-
-export interface MembershipSubscriptionPayloadPromise
-  extends Promise<MembershipSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = MembershipPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = MembershipPreviousValuesPromise>() => T;
-}
-
-export interface MembershipSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<MembershipSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = MembershipSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = MembershipPreviousValuesSubscription>() => T;
-}
-
-export interface MembershipPreviousValues {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  title: String;
-  description: String;
-  genere: String;
-  points: Int;
-  type: TypeMembership;
-}
-
-export interface MembershipPreviousValuesPromise
-  extends Promise<MembershipPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  genere: () => Promise<String>;
-  points: () => Promise<Int>;
-  type: () => Promise<TypeMembership>;
-}
-
-export interface MembershipPreviousValuesSubscription
-  extends Promise<AsyncIterator<MembershipPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  genere: () => Promise<AsyncIterator<String>>;
-  points: () => Promise<AsyncIterator<Int>>;
-  type: () => Promise<AsyncIterator<TypeMembership>>;
-}
-
 export interface MovieSubscriptionPayload {
   mutation: MutationType;
   node: Movie;
@@ -4935,45 +3430,30 @@ export interface MovieSubscriptionPayloadSubscription
 
 export interface MoviePreviousValues {
   id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  title: String;
-  sinopsis: String;
-  genere: String;
+  name: String;
+  duration: Int;
+  description?: String;
   clasification: String;
-  lenght: Int;
-  lenguage: String;
-  premiere: DateTimeOutput;
 }
 
 export interface MoviePreviousValuesPromise
   extends Promise<MoviePreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  title: () => Promise<String>;
-  sinopsis: () => Promise<String>;
-  genere: () => Promise<String>;
+  name: () => Promise<String>;
+  duration: () => Promise<Int>;
+  description: () => Promise<String>;
   clasification: () => Promise<String>;
-  lenght: () => Promise<Int>;
-  lenguage: () => Promise<String>;
-  premiere: () => Promise<DateTimeOutput>;
 }
 
 export interface MoviePreviousValuesSubscription
   extends Promise<AsyncIterator<MoviePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  title: () => Promise<AsyncIterator<String>>;
-  sinopsis: () => Promise<AsyncIterator<String>>;
-  genere: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  duration: () => Promise<AsyncIterator<Int>>;
+  description: () => Promise<AsyncIterator<String>>;
   clasification: () => Promise<AsyncIterator<String>>;
-  lenght: () => Promise<AsyncIterator<Int>>;
-  lenguage: () => Promise<AsyncIterator<String>>;
-  premiere: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface OrderSubscriptionPayload {
@@ -5197,59 +3677,6 @@ export interface ShowPreviousValuesSubscription
   schedule: () => Promise<AsyncIterator<String>>;
 }
 
-export interface TicketSubscriptionPayload {
-  mutation: MutationType;
-  node: Ticket;
-  updatedFields: String[];
-  previousValues: TicketPreviousValues;
-}
-
-export interface TicketSubscriptionPayloadPromise
-  extends Promise<TicketSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = TicketPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = TicketPreviousValuesPromise>() => T;
-}
-
-export interface TicketSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<TicketSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = TicketSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = TicketPreviousValuesSubscription>() => T;
-}
-
-export interface TicketPreviousValues {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  cost: Int;
-  points: Int;
-}
-
-export interface TicketPreviousValuesPromise
-  extends Promise<TicketPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  cost: () => Promise<Int>;
-  points: () => Promise<Int>;
-}
-
-export interface TicketPreviousValuesSubscription
-  extends Promise<AsyncIterator<TicketPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  cost: () => Promise<AsyncIterator<Int>>;
-  points: () => Promise<AsyncIterator<Int>>;
-}
-
 export interface UserSubscriptionPayload {
   mutation: MutationType;
   node: User;
@@ -5363,10 +3790,6 @@ export type Long = string;
 
 export const models: Model[] = [
   {
-    name: "Combo",
-    embedded: false
-  },
-  {
     name: "Billboard",
     embedded: false
   },
@@ -5375,23 +3798,7 @@ export const models: Model[] = [
     embedded: false
   },
   {
-    name: "Employee",
-    embedded: false
-  },
-  {
-    name: "TypeRol",
-    embedded: false
-  },
-  {
     name: "Item",
-    embedded: false
-  },
-  {
-    name: "Membership",
-    embedded: false
-  },
-  {
-    name: "TypeMembership",
     embedded: false
   },
   {
@@ -5428,10 +3835,6 @@ export const models: Model[] = [
   },
   {
     name: "Show",
-    embedded: false
-  },
-  {
-    name: "Ticket",
     embedded: false
   },
   {
