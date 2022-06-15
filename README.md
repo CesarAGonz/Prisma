@@ -1,4 +1,4 @@
-# Prisma1 Template
+# Primer contacto con prisma
 
 ![](https://img.shields.io/badge/staus-success-green.svg) ![](https://img.shields.io/badge/Shield_layer-🛡🛡🛡🛡🛡-gold.svg) ![](https://img.shields.io/badge/yarn-v1.21.1-pink.svg) ![](https://img.shields.io/badge/Nodejs-v10.22-lemon.svg) ![](https://img.shields.io/badge/GraphQL-v14.1.1-pink.svg) ![](https://img.shields.io/badge/Prisma-v1.34.10-lemon.svg)
 
